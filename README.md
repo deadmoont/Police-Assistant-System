@@ -1,12 +1,12 @@
 
-#Backend
+<h3>#Backend
 -->Open terminal & go to cd backend
 
 -->install dependencies by running npm install command
 
 -->Run the command npm start or nodemon index.js to start live server on database
 
-#Frontend
+<h3>#Frontend
 -->Open terminal & go to cd frontend
 
 -->Install dependencies by running npm install command

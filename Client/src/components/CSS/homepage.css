@@ -1,0 +1,88 @@
+/* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #113a4e;
+    padding: 20px;
+    color: white;
+}
+
+header .logo img {
+    width: 120px;
+    height: 100px;
+}
+
+header .emblem img {
+    width: 150px;
+}
+
+header .edit-profile a img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Main section styles */
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px; /* Full height minus header, footer, and margins */
+    margin: 125px 0; /* 125px margin from both header and footer */
+    
+    text-align: center;
+}
+
+main .section {
+    background-color: #a3a4a4;
+    color: white;
+    width: 22%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+main .section h2 {
+    font-size: 20px;
+}
+main .section a{
+    color: #070707;
+    text-decoration: none;
+}
+main .section img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* border: 2px solid white; */
+    border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #00101F;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

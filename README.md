@@ -1,16 +1,18 @@
 
-<h3>#Backend
--->Open terminal & go to cd backend
+<h3>#Server
+-->Open terminal & go to cd server
 
 -->install dependencies by running npm install command
 
--->Run the command npm start or nodemon index.js to start live server on database
-
-<h3>#Frontend
--->Open terminal & go to cd frontend
+<h3>#Client
+-->Open terminal & go to cd client
 
 -->Install dependencies by running npm install command
 
--->Run the command npm run dev to start live server
+<h3>#Then do simultaneously opening two terminal 
 
--->Click on http://localhost:5173/
+-->In first terminal Run the command npm start or nodemon index.js to start live server on database
+
+-->In second terminal Run the command npm run dev to start live server
+
+    --Click on http://localhost:5173/

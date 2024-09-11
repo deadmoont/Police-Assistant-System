@@ -8,12 +8,13 @@ const Register = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [favoritePet, setFavoritePet] = useState();  // New state for favorite pet
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post( 'http://localhost:3001/register', {name, email, password})
+        axios.post( 'http://localhost:3001/register', {name, email, password, favoritePet})  // Send favoritePet
         .then(result => {
             console.log(result);
             if(result.data === "Already registered"){
@@ -38,7 +39,7 @@ const Register = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 text-start">
                             <label htmlFor="exampleInputEmail1" className="form-label">
-                                <strong >Name</strong>
+                                <strong>Name</strong>
                             </label>
                             <input 
                                 type="text"
@@ -75,6 +76,19 @@ const Register = () => {
                                 required
                             />
                         </div>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="favoritePet" className="form-label">
+                                <strong>Your Favorite Pet</strong>
+                            </label>
+                            <input 
+                                type="text" 
+                                placeholder="Enter Your Favorite Pet"
+                                className="form-control" 
+                                id="favoritePet" 
+                                onChange={(event) => setFavoritePet(event.target.value)}
+                                required
+                            />
+                        </div>
                         <button type="submit" className="btn btn-primary">Register</button>
                     </form>
 
@@ -86,4 +100,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Register;

@@ -15,7 +15,7 @@ const Login = () => {
             .then(result => {
                 if (result.data === "Success") {
                     alert('Login successful!');
-                    navigate(`/profile?email=${email}`); // Pass the email to Profile
+                    navigate(`/Home?email=${email}`); // Pass the email to Profile
                 } else {
                     alert('Incorrect password! Please try again.');
                 }

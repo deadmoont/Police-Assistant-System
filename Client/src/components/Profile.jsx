@@ -9,10 +9,14 @@ const Profile = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
 
+    // Extract email from the URL
     useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');  // Extracting the email from the query param
+
         axios.get('http://localhost:3001/profile', { 
             withCredentials: true,
-            params: { email: new URLSearchParams(window.location.search).get('email') }
+            params: { email }
         })
         .then(response => {
             setUserData({
@@ -33,7 +37,11 @@ const Profile = () => {
             return;
         }
 
-        axios.post('http://localhost:3001/change-password', { email: userData.email, currentPassword, newPassword })
+        axios.post('http://localhost:3001/change-password', { 
+            email: userData.email, 
+            currentPassword, 
+            newPassword 
+        })
             .then(response => {
                 setMessage('Password changed successfully!');
             })

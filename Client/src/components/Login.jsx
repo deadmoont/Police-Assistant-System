@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CSS/Login.css'; // Assuming you'll move the CSS to a separate file called Login.css
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -24,9 +25,9 @@ const Login = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center text-center vh-100">
-            <div className="bg-white p-3 rounded" style={{ width: '40%' }}>
-                <h2 className="mb-3 text-primary">Login</h2>
+        <div className="login-container">
+            <div className="form-box">
+                <h2 className="text-primary"><strong>Login</strong></h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3 text-start">
                         <label htmlFor="exampleInputEmail1" className="form-label"><strong>Email</strong></label>

@@ -1,4 +1,4 @@
-/* Basic resets */
+Basic resets
 * {
     margin: 0;
     padding: 0;
@@ -11,40 +11,13 @@ body {
     color: #333;
 }
 
-/* Header styles */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #113a4e;
-    padding: 20px;
-    height: 300px;
-    color: white;
-}
-
-header .logo img {
-    width: 120px;
-    height: 100px;
-}
-
-header .emblem img {
-    width: 150px;
-}
-
-header .edit-profile a img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
 /* Main section styles */
 main {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 300px; /* Full height minus header, footer, and margins */
-    margin: 125px 0; /* 125px margin from both header and footer */
+    margin: 15rem 0; /* 125px margin from both header and footer */
     
     text-align: center;
 }
@@ -64,9 +37,9 @@ main .section {
 
 main .section h2 {
     font-size: 20px;
+    color: black !important; /* Ensures the link color is black */
 }
 main .section a{
-    color: #070707;
     text-decoration: none;
 }
 main .section img {
@@ -76,7 +49,9 @@ main .section img {
     /* border: 2px solid white; */
     border-radius: 5px;
 }
+.nav-links{
 
+}
 /* Footer styles */
 footer {
     text-align: center;

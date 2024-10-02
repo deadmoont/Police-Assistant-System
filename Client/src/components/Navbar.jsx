@@ -2,7 +2,7 @@ import logo from "../../public/Images/logo.jpg";
 import emblem from "../../public/Images/Emblem.png";
 import { HiOutlineBars4 } from "react-icons/hi2";
 import { IoMdContact } from "react-icons/io";
-
+import React from "react";
 // const handleProfileClick = () => {
 //   console.log("profile is clicked!!");
 // };
@@ -69,7 +69,22 @@ function Navbar({ handleProfileClick }) {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    Link
+                    Camera Monitoring
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Queuing
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Database
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Department Tracker
                   </a>
                 </li>
               </ul>

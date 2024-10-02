@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CSS/homepage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { Link, useNavigate } from "react-router-dom"; // Make sure you import the necessary hooks
 import Navbar from "./Navbar";
 
@@ -35,6 +34,10 @@ const Home = () => {
     navigate(`/Profile?email=${userData.email}`);
   };
 
+  const handleDatabaseClick = () => {
+    navigate(`/FileRecord`);
+  };
+
   return (
     <div>
       {/* Header */}
@@ -48,18 +51,19 @@ const Home = () => {
           </a>
           <img src="../Images/camera.jpg" alt="Camera Monitoring" />
         </div>
+
         <div className="section">
           <a href="Queueing.html">
             <h2>Queueing</h2>
           </a>
           <img src="../Images/Queue.jpg" alt="Queueing" />
         </div>
-        <div className="section">
-          <a href="Database.html">
-            <h2>Database</h2>
-          </a>
+
+        <div className="section" onClick={handleDatabaseClick} style={{ cursor: 'pointer' }}>
+          <h2>Database</h2>
           <img src="../Images/database.png" alt="Database" />
         </div>
+
         <div className="section">
           <a href="DepartmentTracker.html">
             <h2>Department Tracker</h2>

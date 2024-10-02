@@ -1,0 +1,155 @@
+/* Global Reset and Styling */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: 'Arial', sans-serif; /* Changed to a more formal font */
+  background-color: #e9ecef; /* Lighter background for a cleaner look */
+  min-height: 100vh;
+  margin-top: 50px;
+  padding: 0;
+  height: 800px;
+}
+
+/* Typography */
+h2 {
+  text-align: center;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 20px 0; /* 20px margin on top and bottom */
+  font-size: 24px;
+  padding: 10px;  /* Add some padding */
+  background-color: #ecf0f1; /* Optional background color */
+  border-radius: 5px; /* Optional border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle effect */
+}
+
+.file-record-container {
+  max-width: 800px; /* Limit the maximum width */
+  width: 100%; /* Full width on smaller screens */
+  margin: auto; /* Center the container */
+  padding: 20px; /* Add padding */
+  background-color: #ffffff; /* White background for the form area */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* Navbar Styling */
+.navbar {
+  background-color: #0056b3; /* Blue color similar to government websites */
+  padding: 15px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centered the navbar items */
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar ul li:hover {
+  background-color: #004494; /* Darker blue on hover */
+}
+
+/* Container */
+.container {
+  width: 60%; /* Reduced width for a more formal appearance */
+  margin: 40px auto; /* Centered the container */
+  padding: 20px;
+}
+
+/* Category Header */
+.category-header {
+  background-color: #007bff; /* Bright blue for category header */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 24px; /* Increased font size for emphasis */
+  text-align: center; /* Centered text */
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff; /* White background for the form */
+  padding: 40px; /* Increased padding for better spacing */
+  border-radius: 8px; /* Softer corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Slightly larger shadow for depth */
+  margin-top: 20px; /* Reduced margin for a tighter layout */
+}
+
+form input,
+form textarea {
+  margin-bottom: 20px;
+  padding: 12px; /* Increased padding for input fields */
+  border: 1px solid #ced4da; /* Lighter border color */
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007bff; /* Highlight border color on focus */
+  outline: none; /* Removed default outline */
+}
+
+/* Button Styling */
+button {
+  padding: 12px; /* Increased padding for better touch target */
+  background-color: #28a745; /* Green color for submit button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Message Styling */
+.success-message {
+  color: #155724; /* Dark green for success message */
+  background-color: #d4edda; /* Light green background */
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.error-message {
+  color: #721c24; /* Dark red for error message */
+  background-color: #f8d7da; /* Light red background */
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+/* Adjust Spacing for Footer */
+footer {
+  margin-top: 50px; /* Pushes footer content further down for better spacing */
+  text-align: center;
+  padding: 20px;
+  background-color: #0056b3; /* Matching footer color with navbar */
+  color: white;
+}

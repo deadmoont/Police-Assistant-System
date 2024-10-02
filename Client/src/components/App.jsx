@@ -4,6 +4,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile"; // Import the new Profile component
 import ForgotPassword from "./Forgetpassword";
+import FileRecord from "./FileRecord";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,7 +21,8 @@ function App() {
           <Route path="/Forgetpassword" element={<ForgotPassword />} />
           <Route path="/home" element={<Home />} />
           <Route path="/UserRegister" element={<UserRegister />}></Route>
-          <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/FileRecord" element={<FileRecord />} />
           {/* Add Profile route */}
         </Routes>
       </BrowserRouter>

@@ -7,14 +7,12 @@
   padding: 0;
 }
 
-
 body {
-  font-family: 'Arial', sans-serif; /* Changed to a more formal font */
-  background-color: #e9ecef; /* Lighter background for a cleaner look */
+  font-family: 'Arial', sans-serif;
+  background-color: #e9ecef;
   min-height: 100vh;
   margin-top: 50px;
   padding: 0;
-  height: 800px;
 }
 
 /* Typography */
@@ -22,100 +20,115 @@ h2 {
   text-align: center;
   font-weight: bold;
   color: #2c3e50;
-  margin: 20px 0; /* 20px margin on top and bottom */
+  margin: 20px 0;
   font-size: 24px;
-  padding: 10px;  /* Add some padding */
-  background-color: #ecf0f1; /* Optional background color */
-  border-radius: 5px; /* Optional border radius */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle effect */
-}
-
-.file-record-container {
-  max-width: 800px; /* Limit the maximum width */
-  width: 100%; /* Full width on smaller screens */
-  margin: auto; /* Center the container */
-  padding: 20px; /* Add padding */
-  background-color: #ffffff; /* White background for the form area */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-
-/* Navbar Styling */
-.navbar {
-  background-color: #0056b3; /* Blue color similar to government websites */
-  padding: 15px;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  justify-content: center; /* Centered the navbar items */
-  padding: 0;
-  margin: 0;
-}
-
-.navbar ul li {
-  color: white;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar ul li:hover {
-  background-color: #004494; /* Darker blue on hover */
-}
-
-/* Container */
-.container {
-  width: 60%; /* Reduced width for a more formal appearance */
-  margin: 40px auto; /* Centered the container */
-  padding: 20px;
-}
-
-/* Category Header */
-.category-header {
-  background-color: #007bff; /* Bright blue for category header */
-  color: white;
-  padding: 15px;
+  padding: 10px;
+  background-color: #ecf0f1;
   border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 24px; /* Increased font size for emphasis */
-  text-align: center; /* Centered text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* File Record Container */
+.file-record-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+}
+
+/* Sub-Navbar Styling */
+.sub-navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1a7136; /* Darker, formal blue */
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-radius: 0; /* No rounded corners for a more serious, formal look */
+  border-top: 4px solid #d1d1d1; /* Adding a subtle border for structure */
+  box-shadow: none; /* Remove shadow for a flat design */
+}
+
+.sub-navbar button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  text-transform: uppercase; /* More formal text style */
+}
+
+.sub-navbar button:hover,
+.sub-navbar button.selected {
+  background-color: #17cc45; /* Darker background for hover effect */
+  color: #f0f0f0; /* Subtle color change on hover */
+  border-bottom: 3px solid #e74c3c; /* Red underline for active or hovered button */
+  box-shadow: none; /* Keep the flat look */
+}
+
+/* Category Content Styling */
+.category-content {
+  margin-bottom: 20px;
+  padding: 25px;
+  background-color: #ffffff; /* White background for a clean look */
+  border-left: 4px solid #e3e6ea; /* Left border to add structure */
+  border-radius: 2px; /* Slight rounding, not too soft */
+  box-shadow: none; /* Remove shadows for a flat, professional look */
+}
+
+.category-content h3 {
+  font-size: 22px;
+  color: #333333; /* Dark gray for formal text */
+  font-weight: 700; /* Bold for emphasis */
+  margin-bottom: 10px;
+  text-align: left; /* Aligning to the left for a government-style look */
+  border-bottom: 2px solid #2c3e50; /* Subtle bottom border for separation */
+  padding-bottom: 8px;
+}
+
+.category-content p {
+  font-size: 16px;
+  color: #555555; /* Muted color for body text */
+  line-height: 1.8;
+  text-align: justify; /* For cleaner, block-like paragraph style */
+}
+
 
 /* Form Styling */
 form {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff; /* White background for the form */
-  padding: 40px; /* Increased padding for better spacing */
-  border-radius: 8px; /* Softer corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Slightly larger shadow for depth */
-  margin-top: 20px; /* Reduced margin for a tighter layout */
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 form input,
 form textarea {
   margin-bottom: 20px;
-  padding: 12px; /* Increased padding for input fields */
-  border: 1px solid #ced4da; /* Lighter border color */
+  padding: 12px;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   font-size: 16px;
-  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  transition: border-color 0.3s ease;
 }
 
 form input:focus,
 form textarea:focus {
-  border-color: #007bff; /* Highlight border color on focus */
-  outline: none; /* Removed default outline */
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Button Styling */
 button {
-  padding: 12px; /* Increased padding for better touch target */
-  background-color: #28a745; /* Green color for submit button */
+  padding: 12px;
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
@@ -125,31 +138,48 @@ button {
 }
 
 button:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
 /* Message Styling */
 .success-message {
-  color: #155724; /* Dark green for success message */
-  background-color: #d4edda; /* Light green background */
+  color: #155724;
+  background-color: #d4edda;
   padding: 10px;
   border-radius: 4px;
   margin-top: 15px;
 }
 
 .error-message {
-  color: #721c24; /* Dark red for error message */
-  background-color: #f8d7da; /* Light red background */
+  color: #721c24;
+  background-color: #f8d7da;
   padding: 10px;
   border-radius: 4px;
   margin-top: 15px;
 }
 
-/* Adjust Spacing for Footer */
+/* Footer Styling */
 footer {
-  margin-top: 50px; /* Pushes footer content further down for better spacing */
   text-align: center;
   padding: 20px;
-  background-color: #0056b3; /* Matching footer color with navbar */
+  background-color: #0056b3;
   color: white;
+  position: relative; /* Make sure it doesn't get fixed */
+  width: 100%;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .file-record-container {
+    padding: 10px;
+  }
+
+  .sub-navbar button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  form {
+    padding: 20px;
+  }
 }

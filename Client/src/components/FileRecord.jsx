@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import apiService from '../services/apiService';
-import "../styles/App.css";
+import '../styles/App.css';
+import SubNavbar from './SubNavbar'; // Import SubNavbar
 
-const FileRecord = ({ category }) => {
+const categories = ["Theft", "Assault", "Fraud", "Missing Persons"]; // Define categories
+
+const FileRecord = () => {
   const [caseNumber, setCaseNumber] = useState('');
   const [applicant, setApplicant] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -10,16 +13,22 @@ const FileRecord = ({ category }) => {
   const [description, setDescription] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("Theft"); // Track the selected category
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category); // Update selected category
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await apiService.addFileRecord({
-        caseNumber, 
-        applicant, 
-        phoneNumber, 
-        address, 
-        description
+        caseNumber,
+        applicant,
+        phoneNumber,
+        address,
+        description,
+        category: selectedCategory
       });
       setSuccessMessage('Record added successfully');
       setErrorMessage('');
@@ -29,7 +38,6 @@ const FileRecord = ({ category }) => {
       setAddress('');
       setDescription('');
     } catch (error) {
-      console.error('Submission error:', error); // Log the error for debugging
       setErrorMessage('Error adding record. Please try again.');
       setSuccessMessage('');
     }
@@ -37,10 +45,26 @@ const FileRecord = ({ category }) => {
 
   return (
     <div className="file-record-container">
-      {/* Heading for the form */}
-      <h2>Database</h2> 
-      
-      <form onSubmit={handleSubmit}>
+      {/* SubNavbar for category selection */}
+      <SubNavbar
+        categories={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={handleCategoryClick}
+      />
+
+      {/* Dynamic content based on selected category */}
+      <div className="category-content">
+        <h2>{selectedCategory}</h2>
+        <p>
+          {selectedCategory === "Theft" && "Details and guidelines related to theft cases."}
+          {selectedCategory === "Assault" && "Information regarding assault cases and procedures."}
+          {selectedCategory === "Fraud" && "Steps and regulations for handling fraud-related cases."}
+          {selectedCategory === "Missing Persons" && "Instructions for missing persons case management."}
+        </p>
+      </div>
+
+      {/* Form to file a record */}
+      <form onSubmit={handleSubmit} className="file-record-form">
         <input
           type="text"
           placeholder="Case Number"
@@ -79,7 +103,7 @@ const FileRecord = ({ category }) => {
         <button type="submit">Add Record</button>
       </form>
 
-      {/* Success or Error Message */}
+      {/* Success/Error messages */}
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>

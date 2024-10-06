@@ -91,12 +91,13 @@ app.post('/forgot-password', (req, res) => {
 //         .catch(err => res.status(500).json(err));
 // });
 
+
 /// Record POST Route
 app.post('/api/records', async (req, res) => {
-    const { caseNumber, applicant, phoneNumber, address, description } = req.body;
+    const { caseNumber, applicant, phoneNumber, address, description,category } = req.body;
 
     // Basic validation for required fields
-    if (!caseNumber || !applicant || !phoneNumber || !address || !description ) {
+    if (!caseNumber || !applicant || !phoneNumber || !address || !description || !category ) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -107,6 +108,7 @@ app.post('/api/records', async (req, res) => {
             phoneNumber,
             address,
             description,
+            category,
         });
 
         const savedRecord = await newRecord.save(); // Save the record to the database

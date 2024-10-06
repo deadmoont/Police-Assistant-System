@@ -15,7 +15,7 @@ function AppContent() {
         <Route path="/" element={<Register />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Forgetpassword" element={<ForgotPassword />} />
+        <Route path="/Forgotpassword" element={<ForgotPassword />} />
         <Route path="/home" element={<Home />} />
         <Route path="/UserRegister" element={<UserRegister />} />
         <Route path="/profile" element={<Profile />} />

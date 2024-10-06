@@ -54,7 +54,7 @@ const Login = () => {
                     <button type="submit" className="btn btn-primary">Login</button>
                 </form>
                 <p className="mt-3">
-                    <Link to="/Forgetpassword" className="text-secondary">Forgot Password?</Link>
+                    <Link to="/Forgotpassword" className="text-secondary">Forgot Password?</Link>
                 </p>
                 <p className="container my-2">Don't have an account?</p>
                 <Link to='/register' className="btn btn-secondary">Register</Link>

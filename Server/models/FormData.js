@@ -4,7 +4,7 @@ const FormDataSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    favoritePet: String  // Add favorite pet
+    otp: { type: String, default: null } 
 })
 
 const FormDataModel = mongoose.model('log_reg_form', FormDataSchema);

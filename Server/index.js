@@ -1,8 +1,9 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const FormDataModel = require ('./Models/FormData');
+const FormDataModel = require ('./models/FormData');
 const Record = require('./models/Record');
+const nodemailer = require('nodemailer');
 //const recordRoutes = require('./routes/recordRoutes'); // Import the record routes
 
 const app = express();
@@ -23,7 +24,7 @@ mongoose.connect('mongodb+srv://2:2@cluster1.51xt3.mongodb.net/?retryWrites=true
     });
 
     app.post('/register', (req, res)=>{
-        const {email, password, favoritePet} = req.body;
+        const {email, password} = req.body;
         FormDataModel.findOne({email: email})
         .then(user => {
             if(user){
@@ -54,42 +55,87 @@ mongoose.connect('mongodb+srv://2:2@cluster1.51xt3.mongodb.net/?retryWrites=true
             }
         });
     });
-app.post('/forgot-password', (req, res) => {
-    // Add forgot-password logic here
+
+
+// Set up nodemailer transporter
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'grishgautam03@gmail.com', // replace with your email
+        pass: 'lvfu zcnp njjv bgqh'  // replace with your email password
+    }
 });
 
-// app.get('/profile', (req, res) => {
-//     const email = req.query.email; // Assuming the email is passed from the front-end
-//     FormDataModel.findOne({ email })
-//         .then(user => {
-//             if (user) {
-//                 res.json({ name: user.name, email: user.email });
-//             } else {
-//                 res.status(404).json("User not found");
-//             }
-//         })
-//         .catch(err => res.status(500).json(err));
-// });
 
-// app.post('/change-password', (req, res) => {
-//     const { email, currentPassword, newPassword } = req.body;
-//     FormDataModel.findOne({ email })
-//         .then(user => {
-//             if (user) {
-//                 if (user.password === currentPassword) {
-//                     user.password = newPassword;
-//                     user.save()
-//                         .then(() => res.json("Password changed successfully!"))
-//                         .catch(err => res.status(500).json(err));
-//                 } else {
-//                     res.status(400).json("Current password is incorrect.");
-//                 }
-//             } else {
-//                 res.status(404).json("User not found.");
-//             }
-//         })
-//         .catch(err => res.status(500).json(err));
-// });
+    // Send OTP
+app.post('/send-otp', async (req, res) => {
+    const { email } = req.body;
+    const otp = Math.floor(100000 + Math.random() * 900000);  // Generate 6-digit OTP
+
+    // Save OTP to user's document in the database
+    await FormDataModel.updateOne({ email }, { $set: { otp } });
+
+    const mailOptions = {
+        from: 'grishgautam03@gmail.com',
+        to: email,
+        subject: 'Password Reset OTP',
+        text: `Your OTP for password reset is ${otp}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).json({ message: 'Error sending OTP', error });
+        } else {
+            res.status(200).json({ message: 'OTP sent to your email!' });
+        }
+    });
+});
+
+// Verify OTP
+app.post('/verify-otp', async (req, res) => {
+    const { email, otp } = req.body;
+
+    try {
+        // Find the user's document by email
+        const user = await FormDataModel.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Check if the provided OTP matches the one in the database
+        if (user.otp === otp) {
+            // OTP matches, clear OTP field after successful verification
+            await FormDataModel.updateOne({ email }, { $unset: { otp: 1 } });
+
+            return res.status(200).json({ message: 'OTP verified successfully' });
+        } else {
+            return res.status(400).json({ message: 'Invalid OTP' });
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Error verifying OTP', error });
+    }
+});
+
+// Change Password
+app.post('/change-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    try {
+        // Update the user's password in the database
+        await FormDataModel.updateOne({ email }, { password: newPassword });
+
+        return res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Error updating password', error });
+    }
+});
+
+
+
+
 
 
 /// Record POST Route

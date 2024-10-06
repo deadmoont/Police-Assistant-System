@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './CSS/Register.css';  // Assuming you'll move the CSS to a separate file called Register.css
+import './CSS/Register.css'; 
 
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [favoritePet, setFavoritePet] = useState('');  // New state for favorite pet
+    const [favoritePet, setFavoritePet] = useState(''); 
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {

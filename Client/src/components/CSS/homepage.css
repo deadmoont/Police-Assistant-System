@@ -14,12 +14,12 @@ body {
 
 /* Main section styles */
 main {
-    /* display: flex; */
+    position: sticky; /* Makes the main section sticky */
+    top: 0; /* Adjust this value to control when it sticks (distance from the top of the viewport) */
     justify-content: space-around;
     align-items: center;
-    height: 300px; /* Full height minus header, footer, and margins */
-    margin: 15rem 35rem; /* 125px margin from both header and footer */
-    /* min-height: calc(100vh - 200px); */
+    height: 300px;
+    margin: 0 35rem;
     text-align: center;
 }
 
@@ -39,9 +39,11 @@ main .section h2 {
     font-size: 20px;
     color: black !important; /* Ensures the link color is black */
 }
-main .section a{
+
+main .section a {
     text-decoration: none;
 }
+
 main .section img {
     width: 120px;
     height: 120px;

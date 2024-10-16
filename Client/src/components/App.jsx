@@ -10,7 +10,7 @@ import "../styles/App.css"; // Import the styles
 
 function AppContent() {
   return (
-    <div style={{ marginTop: "-3.5rem" }}>
+    <div /*style={{ marginTop: "+4.5rem"}}*/>
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/register" element={<Register />} />
@@ -19,7 +19,8 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/UserRegister" element={<UserRegister />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/FileRecord" element={<FileRecord />} /> {/* No need to pass category here */}
+        <Route path="/FileRecord" element={<FileRecord />} />{" "}
+        {/* No need to pass category here */}
       </Routes>
     </div>
   );

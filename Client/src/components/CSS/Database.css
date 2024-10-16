@@ -1,0 +1,15 @@
+.subNav{
+  background-color: darkslategrey;
+  
+}
+
+
+/* Hover effect on buttons */
+.sub-navbar button:hover {
+  text-decoration: none;
+  color: black;
+  background-color: #fff; /* Lighter green when hovered */
+  /* transform: translateY(-3px); Slight lift effect when hovered */
+  border-bottom: none !important; /* Ensures no bottom border */
+  box-shadow: none !important; /* If there's any shadow applied */
+}

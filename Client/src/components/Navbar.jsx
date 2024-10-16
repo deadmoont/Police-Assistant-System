@@ -3,6 +3,7 @@ import emblem from "../../public/Images/Emblem.png";
 import { HiOutlineBars4 } from "react-icons/hi2";
 import { IoMdContact } from "react-icons/io";
 import React from "react";
+import { Link } from "react-router-dom";
 // const handleProfileClick = () => {
 //   console.log("profile is clicked!!");
 // };
@@ -51,7 +52,7 @@ function Navbar({ handleProfileClick }) {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Offcanvas
+                More Options
               </h5>
               <button
                 type="button"
@@ -63,9 +64,13 @@ function Navbar({ handleProfileClick }) {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="Home.jsx"
+                  >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">

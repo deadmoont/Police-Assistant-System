@@ -1,9 +1,10 @@
 // src/components/SubNavbar.js
 import React from "react";
-
+import "./CSS/Database.css"
 const SubNavbar = ({ categories, selectedCategory, setSelectedCategory }) => {
   return (
-    <nav className="sub-navbar">
+    <>
+      <nav className="sub-navbar subNav">
       {categories.map((category) => (
         <button
           key={category}
@@ -13,7 +14,10 @@ const SubNavbar = ({ categories, selectedCategory, setSelectedCategory }) => {
           {category}
         </button>
       ))}
-    </nav>
+      </nav>
+   
+    </>
+   
   );
 };
 

@@ -4,9 +4,12 @@ import App from "./components/App";
 import Footer from "./components/Footer";
 
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+   
     <App />
-    <Footer />
+    
+    {/* <Footer /> */}
   </React.StrictMode>
 );

@@ -6,11 +6,11 @@ import Profile from "./Profile";
 import ForgotPassword from "./Forgetpassword";
 import FileRecord from "./FileRecord";
 import UserRegister from "./UserRegister";
-import "../styles/App.css"; // Import the styles
+// import "../styles/App.css"; // Import the styles
 
 function AppContent() {
   return (
-    <div /*style={{ marginTop: "+4.5rem"}}*/>
+    <div>
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/register" element={<Register />} />

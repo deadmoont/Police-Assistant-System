@@ -1,19 +1,19 @@
 /* Global Reset and Styling */
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
-body {
+/* body {
   font-family: 'Arial', sans-serif;
   background-color: #e9ecef;
   min-height: 100vh;
   margin-top: 50px;
   padding: 0;
-}
+} */
 
 /* Typography */
 h2 {
@@ -23,7 +23,7 @@ h2 {
   margin: 20px 0;
   font-size: 24px;
   padding: 10px;
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -158,15 +158,6 @@ button:hover {
   margin-top: 15px;
 }
 
-/* Footer Styling */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #0056b3;
-  color: white;
-  position: relative; /* Make sure it doesn't get fixed */
-  width: 100%;
-}
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {

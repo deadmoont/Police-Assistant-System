@@ -1,6 +1,6 @@
 // src/services/apiService.js
 const API_URL = "http://localhost:3001/api/records"; // Check if this matches your backend server URL
-console.log("Hello Priyam");
+console.log("Hello Priyam, He is a good boy!");
 const apiService = {
   addFileRecord: async (record) => {
     try {

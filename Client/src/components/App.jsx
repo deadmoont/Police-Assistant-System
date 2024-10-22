@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import ForgotPassword from "./Forgetpassword";
 import FileRecord from "./FileRecord";
 import UserRegister from "./UserRegister";
+import MemoApp from "./MemoApp";
 // import "../styles/App.css"; // Import the styles
 
 function AppContent() {
@@ -19,7 +20,9 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/UserRegister" element={<UserRegister />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/FileRecord" element={<FileRecord />} />{" "}
+        <Route path="/FileRecord" element={<FileRecord />} />
+        <Route path="/MemoApp" element={<MemoApp />} />
+
         {/* No need to pass category here */}
       </Routes>
     </div>

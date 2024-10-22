@@ -5,8 +5,13 @@ import "./CSS/homepage.css";
 const Cards = () => {
   const navigate = useNavigate(); // Initialize navigate
 
+  // Handlers for different cards
   const handleDatabaseClick = () => {
     navigate("/FileRecord"); // Navigate to FileRecord component when "Database" card is clicked
+  };
+
+  const handleQueueClick = () => {
+    navigate("/MemoApp"); // Navigate to MemoApp component when "Queueing" card is clicked
   };
 
   return (
@@ -33,7 +38,12 @@ const Cards = () => {
           <p className="card-text myfont">Staff Tracker</p>
         </div>
       </div>
-      <div className="mycard" style={{ width: "17rem" }}>
+      {/* Queueing Card with onClick event */}
+      <div
+        className="mycard"
+        style={{ width: "17rem" }}
+        onClick={handleQueueClick} // Add onClick to navigate to MemoApp
+      >
         <img
           src="../Images/Queue.svg"
           className="card-img-top"
@@ -48,10 +58,8 @@ const Cards = () => {
       <div
         className="mycard"
         style={{ width: "17rem" }}
-        onClick={handleDatabaseClick}
+        onClick={handleDatabaseClick} // Add onClick to navigate to FileRecord
       >
-        {" "}
-        {/* Add onClick */}
         <img
           src="../Images/Database.svg"
           className="card-img-top"
@@ -67,4 +75,3 @@ const Cards = () => {
 };
 
 export default Cards;
-  

@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3001; // Use environment variable for the port 
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5173',  // Front-end origin
+    origin: 'http://localhost:5173',  // Front-end origin;
+    credentials: true,
 }));
 
 // MongoDB connection

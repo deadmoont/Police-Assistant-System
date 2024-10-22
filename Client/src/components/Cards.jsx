@@ -1,12 +1,21 @@
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./CSS/homepage.css";
+
 const Cards = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleDatabaseClick = () => {
+    navigate("/FileRecord"); // Navigate to FileRecord component when "Database" card is clicked
+  };
+
   return (
     <div className="row big-box">
       <div className="mycard" style={{ width: "18rem" }}>
         <img
           src="../Images/CameraFoo.svg"
           className="card-img-top"
-          alt="..."
+          alt="Camera Monitoring"
           style={{ height: "18rem" }}
         />
         <div className="card-body">
@@ -17,7 +26,7 @@ const Cards = () => {
         <img
           src="../Images/TrackerOri.svg"
           className="card-img-top trackerimg"
-          alt="..."
+          alt="Staff Tracker"
           style={{ height: "18rem" }}
         />
         <div className="card-body">
@@ -28,18 +37,25 @@ const Cards = () => {
         <img
           src="../Images/Queue.svg"
           className="card-img-top"
-          alt="..."
+          alt="Queueing"
           style={{ height: "18rem" }}
         />
         <div className="card-body card-text">
           <p className="card-text myfont">Queueing</p>
         </div>
       </div>
-      <div className="mycard" style={{ width: "17rem" }}>
+      {/* Database Card with onClick event */}
+      <div
+        className="mycard"
+        style={{ width: "17rem" }}
+        onClick={handleDatabaseClick}
+      >
+        {" "}
+        {/* Add onClick */}
         <img
           src="../Images/Database.svg"
           className="card-img-top"
-          alt="..."
+          alt="Database"
           style={{ height: "18rem" }}
         />
         <div className="card-body">
@@ -49,4 +65,6 @@ const Cards = () => {
     </div>
   );
 };
+
 export default Cards;
+  

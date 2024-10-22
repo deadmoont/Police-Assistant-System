@@ -37,16 +37,19 @@ const Home = () => {
   };
 
   const handleDatabaseClick = () => {
-    navigate(`/FileRecord`);
+    navigate(`/FileRecord`); // Navigate to the FileRecord component when the database icon is clicked
   };
 
   return (
-    // <div style={{ backgroundImage: `url(${backgroundImage})` }}>
     <div className="homepage">
       {/* Header */}
       <Navbar handleProfileClick={handleProfileClick} />
-      <Cards></Cards>
-      <Footer></Footer>
+
+      {/* Add a button or icon for database navigation */}
+     
+
+      <Cards />
+      <Footer />
     </div>
   );
 };

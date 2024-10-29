@@ -5,7 +5,9 @@ Basic resets
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+  background-color: white !important;
+}
 .homepage{
   background-color: white;
   

@@ -19,11 +19,10 @@ const apiService = {
 
       return await response.json(); // Ensure you await here to get the response
     } catch (error) {
-      console.error('Error in addFileRecord:', error); // Log the error for debugging
+      console.error("Error in addFileRecord:", error); // Log the error for debugging
       throw error; // Rethrow to handle it in the calling function
     }
   },
 };
-
 
 export default apiService;

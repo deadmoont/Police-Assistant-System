@@ -135,12 +135,58 @@ app.post("/change-password", async (req, res) => {
 });
 
 /// Record POST Route
+// app.post("/api/records", async (req, res) => {
+//   const {
+//     caseNumber,
+//     fullName,
+//     phoneNumber,
+//     email,
+//     description,
+//     category,
+//     incidentDate,
+//     incidentTime,
+//   } = req.body;
+
+//   if (
+//     !caseNumber ||
+//     !fullName ||
+//     !phoneNumber ||
+//     !email ||
+//     !description ||
+//     !category ||
+//     !incidentDate ||
+//     !incidentTime
+//   ) {
+//     return res.status(400).json({ message: "All fields are required" });
+//   }
+
+//   try {
+//     const newRecord = new Record({
+//       caseNumber,
+//       fullName,
+//       phoneNumber,
+//       email,
+//       description,
+//       category,
+//       incidentDate,
+//       incidentTime,
+//     });
+
+//     const savedRecord = await newRecord.save();
+//     res.status(201).json(savedRecord);
+//   } catch (err) {
+//     console.error("Error adding record:", err);
+//     res
+//       .status(500)
+//       .json({ message: "Error saving the record", error: err.message });
+//   }
+// });
 app.post("/api/records", async (req, res) => {
   const {
     caseNumber,
-    fullName,
-    phoneNumber,
+    applicant,
     email,
+    phoneNumber,
     address,
     description,
     category,
@@ -148,12 +194,15 @@ app.post("/api/records", async (req, res) => {
     incidentTime,
   } = req.body;
 
+  // Validate required fields, including nested address fields
   if (
     !caseNumber ||
-    !fullName ||
-    !phoneNumber ||
+    !applicant ||
     !email ||
-    !address ||
+    !phoneNumber ||
+    !address?.street ||
+    !address?.city ||
+    !address?.zipCode ||
     !description ||
     !category ||
     !incidentDate ||
@@ -165,10 +214,10 @@ app.post("/api/records", async (req, res) => {
   try {
     const newRecord = new Record({
       caseNumber,
-      fullName,
-      phoneNumber,
+      applicant,
       email,
-      address: JSON.parse(address), // parse the address field
+      phoneNumber,
+      address,
       description,
       category,
       incidentDate,

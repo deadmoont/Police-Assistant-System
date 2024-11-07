@@ -1,5 +1,5 @@
-.memo-app {
-  max-width: 900px; /* Increased width */
+/* .memo-app {
+  max-width: 900px; 
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -7,11 +7,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full height for the app container */
+  min-height: 100vh; 
 }
 
 .app-title {
-  font-size: 2.5rem; /* Slightly larger font size */
+  font-size: 2.5rem; 
   text-align: center;
   margin-bottom: 20px;
   color: #333;
@@ -47,7 +47,7 @@
 }
 
 .memos-container {
-  flex-grow: 1; /* Allow this container to expand and push the footer to the bottom */
+  flex-grow: 1; 
   margin-top: 20px;
 }
 
@@ -59,13 +59,13 @@
 
 .memos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increased size of memo-box */
-  gap: 20px; /* Added more spacing between the grid items */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px; 
 }
 
 .memo-box {
   background-color: white;
-  padding: 20px; /* Increased padding */
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
@@ -104,4 +104,114 @@ footer {
   width: 100%;
   position: relative;
   bottom: 0;
+} */
+.memo-app {
+  /* max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif; */
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.app-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-container .form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.memo-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.save-button {
+  width: 100%;
+  padding: 10px;
+  background-color:  #007c89;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.save-button:hover {
+  background-color:  #007c89;
+}
+
+.memos-container {
+  margin-top: 20px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #777;
+}
+
+.memos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.memo-box {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.memo-time {
+  font-size: 12px;
+  color: #888;
+}
+
+.delete-btn {
+  background-color: #007c89;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #007c89;
+}
+.query-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007c89;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.query-button:hover {
+  background-color: #006b78;
+}
+

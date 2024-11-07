@@ -1,9 +1,22 @@
 import { FaUserCircle } from "react-icons/fa";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./CSS/homepage.css";
 
 function Navbar({ handleProfileClick }) {
+  const navigate = useNavigate(); // Initialize navigate
+
+  // Handlers for different cards
+  const handleDatabaseClick = () => {
+    navigate("/FileRecord"); // Navigate to FileRecord component when "Database" card is clicked
+  };
+  const handleHomeClick = () => {
+    navigate("/Home");
+  };
+  const handleQueueClick = () => {
+    navigate("/Queueopener"); // Navigate to MemoApp component when "Queueing" card is clicked
+  };
   return (
     <header className="p-3 text-bg-dark ">
       <div class="d-flex mb-3 navbarcon">
@@ -23,9 +36,12 @@ function Navbar({ handleProfileClick }) {
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                  <a href="#" className="nav-link px-2 text-white navbartext">
+                  <div
+                    className="nav-link px-2 text-white navbartext"
+                    onClick={handleHomeClick}
+                  >
                     Home
-                  </a>
+                  </div>
                 </li>
                 <li>
                   <a href="#" className="nav-link px-2 text-white navbartext">
@@ -33,20 +49,32 @@ function Navbar({ handleProfileClick }) {
                   </a>
                 </li>
                 <li>
+<<<<<<< HEAD
                   <a
                     href="/MemoApp"
                     className="nav-link px-2 text-white navbartext"
+=======
+                  <div
+                    className="nav-link px-2 text-white navbartext"
+                    onClick={handleQueueClick}
+>>>>>>> 6b43f3f3b4480189665bd6f6de90f00af08702a5
                   >
                     Queueing
-                  </a>
+                  </div>
                 </li>
                 <li>
+<<<<<<< HEAD
                   <a
                     href="/FileRecord"
                     className="nav-link px-2 text-white navbartext"
+=======
+                  <div
+                    className="nav-link px-2 text-white navbartext"
+                    onClick={handleDatabaseClick}
+>>>>>>> 6b43f3f3b4480189665bd6f6de90f00af08702a5
                   >
                     Database
-                  </a>
+                  </div>
                 </li>
                 <li>
                   <a href="#" className="nav-link px-2 text-white navbartext">

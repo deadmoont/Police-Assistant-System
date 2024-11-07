@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "./CSS/MemoApp.css";
+import { useNavigate } from "react-router-dom";
 
 const MemoApp = () => {
+  const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
   const [formData, setFormData] = useState({
     subject: "",
@@ -158,6 +160,13 @@ const MemoApp = () => {
             </p>
           )}
         </div>
+        {/* New Buttons */}
+        <button onClick={() => navigate("/all-queries")} className="query-button">
+            All Queries
+          </button>
+          <button onClick={() => navigate("/queries-finished")} className="query-button">
+            Queries Finished
+          </button>
       </div>
       <Footer />
     </>

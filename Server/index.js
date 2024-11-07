@@ -5,6 +5,7 @@ const FormDataModel = require("./models/FormData");
 const Record = require("./models/Record");
 const nodemailer = require("nodemailer");
 const Queue = require("./models/Queue");
+const Done = require("./models/Done");
 //const recordRoutes = require('./routes/recordRoutes'); // Import the record routes
 
 const app = express();
@@ -208,6 +209,50 @@ app.post("/queue", async (req, res) => {
     res
       .status(500)
       .json({ message: "Error saving the queue item", error: error.message });
+  }
+});
+app.post("/queue/:id/done", async (req, res) => {
+  try {
+    const queryId = req.params.id;
+    const query = await Queue.findById(queryId);
+
+    if (!query) {
+      return res.status(404).json({ error: "Query not found" });
+    }
+
+    // Add query to 'done' collection
+    const doneQuery = new Done(query.toObject());
+    await doneQuery.save();
+
+    // Remove query from 'queues' collection
+    await Queue.findByIdAndDelete(queryId);
+
+    res.status(200).json({ message: "Query moved to done" });
+  } catch (error) {
+    console.error("Error moving query to done:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+app.get("/queue", async (req, res) => {
+  try {
+    const queries = await Queue.find(); // Fetch all queries from the database
+    res.status(200).json(queries); // Respond with the list of queries
+  } catch (error) {
+    console.error("Error fetching queries:", error);
+    res
+      .status(500)
+      .json({ message: "Error fetching queries", error: error.message });
+  }
+});
+
+app.get("/done", async (req, res) => {
+  try {
+    const doneQueries = await Done.find();
+    res.status(200).json(doneQueries);
+  } catch (error) {
+    console.error("Error fetching done queries:", error);
+    res.status(500).json({ error: "Server error" });
   }
 });
 

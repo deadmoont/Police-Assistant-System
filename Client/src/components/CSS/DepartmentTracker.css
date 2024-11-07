@@ -1,11 +1,11 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f4f8;
+  background-color: #fdfefe;
   margin: 0;
   padding: 20px;
 }
 
-.container {
+.containers{
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -38,7 +38,7 @@ h2 {
 input[type="text"], select {
   width: calc(50% - 10px);
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #faebeb;
   border-radius: 5px;
 }
 
@@ -61,8 +61,8 @@ ul {
   padding: 0;
 }
 
-li {
-  background: #e9ecef;
+lid{
+  background: #ffffff;
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;

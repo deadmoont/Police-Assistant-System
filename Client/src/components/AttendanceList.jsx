@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/App.css"; // Import CSS
+
 import { updatePersonnel } from "../services/personnelService"; // Import the service function
 
 const AttendanceList = ({

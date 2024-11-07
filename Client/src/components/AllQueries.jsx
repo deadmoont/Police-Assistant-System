@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./CSS/AllQueries.css"; // Import the CSS file for styling
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
+  const [filteredQueries, setFilteredQueries] = useState([]); // State for filtered queries
 
   useEffect(() => {
     const fetchQueries = async () => {
@@ -13,6 +17,7 @@ const AllQueries = () => {
         }
         const data = await response.json();
         setQueries(data);
+        setFilteredQueries(data); // Initialize filtered queries with all data
       } catch (error) {
         console.error("Error fetching queries:", error);
       }
@@ -32,35 +37,58 @@ const AllQueries = () => {
         throw new Error(errorData.error || "Failed to move query to done");
       }
   
-      setQueries(queries.filter((query) => query._id !== id));
+      setQueries((prevQueries) => prevQueries.filter((query) => query._id !== id));
+      setFilteredQueries((prevQueries) => prevQueries.filter((query) => query._id !== id));
     } catch (error) {
       console.error("Error moving query to done:", error);
       alert(`Error: ${error.message}`);
     }
   };
-  
-  
-  
+
+  // Filter queries based on the phone number search term
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    const filtered = queries.filter((query) =>
+      query.phoneNumber.includes(e.target.value)
+    );
+    setFilteredQueries(filtered);
+  };
 
   return (
-    <div className="memos-container">
-      <h2>All Queries</h2>
-      {queries.length > 0 ? (
-        queries.map((query) => (
-          <div key={query._id} className="memo-box">
-            <h3>{query.subject}</h3>
-            <p>{query.description}</p>
-            <p>Applicant Name: {query.name}</p>
-            <p>Phone Number: {query.phoneNumber}</p>
-            <p>Address: {query.address}</p>
-            <button className="done-btn" onClick={() => handleDone(query._id)}>
-              Mark as Done
-            </button>
-          </div>
-        ))
-      ) : (
-        <p className="empty-message">No queries available.</p>
-      )}
+    <div>
+      <Navbar />
+      <div className="memos-container">
+        <h2>All Queries</h2>
+        
+        {/* Search Input */}
+        <input
+          type="text"
+          placeholder="Search by Phone Number"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+        
+        <div className="memo-grid">
+          {filteredQueries.length > 0 ? (
+            filteredQueries.map((query) => (
+              <div key={query._id} className="memo-box">
+                <h3 className="heading1">Subject: {query.subject}</h3>
+                <p className="bolder"> <strong>Description:</strong> {query.description}</p>
+                <p className="bolder"> <strong>Applicant Name:</strong> {query.name}</p>
+                <p className="bolder"><strong>Phone Number:</strong> {query.phoneNumber}</p>
+                <p className="bolder"><strong>Address:</strong> {query.address}</p>
+                <button className="done-btn" onClick={() => handleDone(query._id)}>
+                  Mark as Done
+                </button>
+              </div>
+            ))
+          ) : (
+            <p className="empty-message">No queries available.</p>
+          )}
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -17,13 +17,11 @@ const MemoApp = () => {
   const [message, setMessage] = useState(""); // State for success/error message
   const [messageType, setMessageType] = useState(""); // State for message type (success or error)
 
-  // Updates the applications every second
   useEffect(() => {
     const interval = setInterval(() => {
-      setApplications([...applications]); // Trigger a re-render to update the duration every second
+      setApplications([...applications]);
     }, 1000);
-
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [applications]);
 
   const handleChange = (e) => {
@@ -33,50 +31,46 @@ const MemoApp = () => {
 
   const addApplication = async () => {
     const { subject, description, name, phoneNumber, address } = formData;
-    if (
-      subject.trim() &&
-      description.trim() &&
-      name.trim() &&
-      phoneNumber.trim() &&
-      address.trim()
-    ) {
-      try {
-        const response = await fetch("http://localhost:3001/queue", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            subject,
-            description,
-            name,
-            phoneNumber,
-            address,
-          }),
-        });
 
-        if (response.ok) {
-          const newApplication = await response.json();
-          setApplications([...applications, newApplication]);
-          setFormData({
-            subject: "",
-            description: "",
-            name: "",
-            phoneNumber: "",
-            address: "",
-          });
-          setMessage("Application submitted successfully!");
-          setMessageType("success"); // Success message type
-        } else {
-          setMessage("Failed to add application. Please try again.");
-          setMessageType("error"); // Error message type
-        }
-      } catch (error) {
-        console.error("Error adding application:", error);
-        setMessage("Error submitting application. Please try again.");
-        setMessageType("error"); // Error message type
-      }
-    } else {
+    if (!subject.trim() || !description.trim() || !name.trim() || !phoneNumber.trim() || !address.trim()) {
       setMessage("Please fill in all fields before submitting.");
-      setMessageType("error"); // Validation message type
+      setMessageType("error");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(phoneNumber)) {
+      setMessage("Phone number must be exactly 10 digits.");
+      setMessageType("error");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3001/queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const newApplication = await response.json();
+        setApplications([...applications, newApplication]);
+        setFormData({
+          subject: "",
+          description: "",
+          name: "",
+          phoneNumber: "",
+          address: "",
+        });
+        setMessage("Application submitted successfully!");
+        setMessageType("success");
+      } else {
+        setMessage("Failed to add application. Please try again.");
+        setMessageType("error");
+      }
+    } catch (error) {
+      console.error("Error adding application:", error);
+      setMessage("Error submitting application. Please try again.");
+      setMessageType("error");
     }
   };
 
@@ -95,6 +89,7 @@ const MemoApp = () => {
               onChange={handleChange}
               placeholder="Enter subject"
               className="memo-input"
+              required
             />
           </div>
 
@@ -106,6 +101,7 @@ const MemoApp = () => {
               onChange={handleChange}
               placeholder="Enter description"
               className="memo-input"
+              required
             ></textarea>
           </div>
 
@@ -118,6 +114,7 @@ const MemoApp = () => {
               onChange={handleChange}
               placeholder="Enter applicant name"
               className="memo-input"
+              required
             />
           </div>
 
@@ -130,6 +127,9 @@ const MemoApp = () => {
               onChange={handleChange}
               placeholder="Enter phone number"
               className="memo-input"
+              required
+              pattern="\d{10}" // Regex for 10 digits
+              title="Phone number must be exactly 10 digits."
             />
           </div>
 
@@ -142,6 +142,7 @@ const MemoApp = () => {
               onChange={handleChange}
               placeholder="Enter address"
               className="memo-input"
+              required
             />
           </div>
 
@@ -160,7 +161,6 @@ const MemoApp = () => {
             </p>
           )}
         </div>
-        
       </div>
       <Footer />
     </>

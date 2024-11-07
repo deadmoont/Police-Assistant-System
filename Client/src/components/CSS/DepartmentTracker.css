@@ -1,3 +1,4 @@
+/* Base Styling */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #fdfefe;
@@ -5,8 +6,9 @@ body {
   padding: 20px;
 }
 
-.containers{
-  max-width: 800px;
+/* Main Container Styling */
+.container2 {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
@@ -14,21 +16,29 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Flexbox Layout for Side-by-Side Display */
 .app-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Individual Component Styling */
+.component-container2 {
+  flex: 1;
+  background-color: #f9f9f9;
+  border-radius: 8px;
   padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.component-container {
-  margin-bottom: 20px; /* Space between AttendanceList and PersonnelList */
-}
-
-
+/* Header Styling */
 h2 {
   color: #333;
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Input Group Styling */
 .input-group {
   display: flex;
   justify-content: space-between;
@@ -42,6 +52,7 @@ input[type="text"], select {
   border-radius: 5px;
 }
 
+/* Button Styling */
 button {
   padding: 10px 15px;
   border: none;
@@ -56,12 +67,14 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* List Styling */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-lid{
+/* List Item Styling */
+.lid{
   background: #ffffff;
   padding: 10px;
   margin: 5px 0;
@@ -69,12 +82,14 @@ lid{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 li button {
   margin-left: 5px;
 }
 
+/* Filter Section Styling */
 .filter {
   display: flex;
   justify-content: space-between;

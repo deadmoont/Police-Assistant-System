@@ -1,0 +1,75 @@
+/* QueriesFinished.css */
+
+.memos-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Define a responsive grid for memo boxes */
+.memo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto-adjust columns */
+  gap: 16px; /* Space between grid items */
+}
+
+.memo-box {
+  background-color: #f6e2e2;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+  font-size: 0.9rem; /* Reduced font size for a more compact look */
+}
+
+.memo-box:hover {
+  transform: scale(1.02);
+}
+
+.heading1 {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+p {
+  margin: 0.3rem 0; /* Reduced margin for compactness */
+}
+
+p strong {
+  color: #007c89;
+}
+
+.empty-message {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+}
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+}

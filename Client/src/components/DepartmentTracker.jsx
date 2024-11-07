@@ -3,6 +3,8 @@ import AttendanceList from "./AttendanceList";
 import PersonnelList from "./PersonnelList";
 import { getPersonnel } from "../services/personnelService";
 import "./CSS/DepartmentTracker.css";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 const DepartmentTracker = () => {
   const [personnel, setPersonnel] = useState([]);
 
@@ -44,15 +46,26 @@ const DepartmentTracker = () => {
 
   return (
     <div>
-      <AttendanceList
-        personnel={personnel}
-        addPersonnel={addPersonnel}
-        updatePersonnelStatus={updatePersonnelStatus}
-        editPersonnel={editPersonnel} // Pass down edit function
-      />
-      <PersonnelList personnel={personnel} />
+      <Navbar/>
+    <div className="container2">
+      <div className="app-container">
+        <div className="component-container2">
+          <AttendanceList
+            personnel={personnel}
+            addPersonnel={addPersonnel}
+            updatePersonnelStatus={updatePersonnelStatus}
+            editPersonnel={editPersonnel}
+          />
+        </div>
+        <div className="component-container2">
+          <PersonnelList personnel={personnel} />
+        </div>
+      </div>
+    </div>
+    
     </div>
   );
+  
 };
 
 export default DepartmentTracker;

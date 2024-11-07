@@ -1,13 +1,12 @@
 import React from "react";
-import '../styles/App.css'; // Import CSS
-
+import "./CSS/Personallist.css"
 const PersonnelList = ({ personnel }) => {
   return (
-    <div className="container">
+    <div className="container2">
       <h2>Personnel List</h2>
       <ul>
         {personnel.map((person) => (
-          <li key={person.id}>
+          <li key={person.id} id={`person-${person.id}`} className="lid2">
             {person.name} - {person.role} - {person.status}
           </li>
         ))}

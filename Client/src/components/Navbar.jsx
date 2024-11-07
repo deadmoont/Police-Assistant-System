@@ -1,7 +1,7 @@
 import { FaUserCircle } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
-import './CSS/homepage.css';
+import "./CSS/homepage.css";
 
 function Navbar({ handleProfileClick }) {
   return (
@@ -33,12 +33,18 @@ function Navbar({ handleProfileClick }) {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="nav-link px-2 text-white navbartext">
+                  <a
+                    href="/MemoApp"
+                    className="nav-link px-2 text-white navbartext"
+                  >
                     Queueing
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="nav-link px-2 text-white navbartext">
+                  <a
+                    href="/FileRecord"
+                    className="nav-link px-2 text-white navbartext"
+                  >
                     Database
                   </a>
                 </li>
@@ -55,7 +61,6 @@ function Navbar({ handleProfileClick }) {
           <FaUserCircle size={40} />
         </div>
       </div>
-     
     </header>
   );
 }

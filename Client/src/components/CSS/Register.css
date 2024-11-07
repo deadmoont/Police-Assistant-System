@@ -1,38 +1,55 @@
 /* Body and overall page style */
 body {
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light background */
+    background-color: #f0f8ff; Light background */
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f6f6f4;
+    margin: 0;
+    padding: 0;
 }
+
 
 /* Container for the registration form */
 .registration-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2; /* Subtle background */
+     height: 100vh; 
+    /* background-color: #f2f2f2; Subtle background */ 
+    background-color: #f6f6f4;
 }
 
+  
 /* Form box */
 .form-box {
-    background-color: white;
-    padding: 40px;
+    background-color: #fff;
+    padding: 2rem;
     width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #0078d7; /* Blue border */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
 }
 
+
+.logo img {
+    width: 50px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 /* Heading */
-h2 {
+/* h2 {
     text-align: center;
     color: #333;
     font-weight: bold;
     margin-bottom: 20px;
     font-size: 1.5rem;
-}
+} */
 
 /* Labels */
 .form-label {
@@ -55,18 +72,20 @@ h2 {
 /* Button */
 .btn {
     width: 100%;
-    padding: 12px;
-    background-color: #0078d7;
+    padding: 0.75rem;
+    background-color: #007c89;
     color: white;
     border: none;
-    font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+  
+  
+    font-size: 1rem;
 }
 
 .btn:hover {
-    background-color: #005bb5;
+    /* background-color: #005bb5; */
+    background-color: #006a75;
 }
 
 /* Secondary button (login link) */
@@ -80,8 +99,7 @@ h2 {
 }
 
 .btn-secondary:hover {
-    background-color: #0078d7;
-    color: white;
+    background-color: #006a75;
 }
 
 p {
@@ -89,6 +107,16 @@ p {
     font-size: 14px;
 }
 
+.help-links {
+    margin-top: 1.5rem;
+  }
+  
+  .help-links a {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #007c89;
+  }
 /* Footer (optional) */
 .footer {
     text-align: center;

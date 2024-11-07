@@ -9,6 +9,7 @@ import UserRegister from "./UserRegister";
 import MemoApp from "./MemoApp";
 import AllQueries from "./AllQueries";
 import QueriesFinished from "./QueriesFinished";
+import Queueopener from "./Queueopener";
 // import "../styles/App.css"; // Import the styles
 
 function AppContent() {
@@ -26,6 +27,7 @@ function AppContent() {
         <Route path="/MemoApp" element={<MemoApp />} />
         <Route path="/all-queries" element={<AllQueries />} />
         <Route path="/queries-finished" element={<QueriesFinished />} />
+        <Route path="/Queueopener" element={<Queueopener/>}/>
 
         {/* No need to pass category here */}
       </Routes>

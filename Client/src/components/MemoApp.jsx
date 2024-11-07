@@ -160,13 +160,7 @@ const MemoApp = () => {
             </p>
           )}
         </div>
-        {/* New Buttons */}
-        <button onClick={() => navigate("/all-queries")} className="query-button">
-            All Queries
-          </button>
-          <button onClick={() => navigate("/queries-finished")} className="query-button">
-            Queries Finished
-          </button>
+        
       </div>
       <Footer />
     </>

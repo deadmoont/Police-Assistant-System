@@ -15,7 +15,7 @@ function Navbar({ handleProfileClick }) {
     navigate("/Home");
   };
   const handleQueueClick = () => {
-    navigate("/MemoApp"); // Navigate to MemoApp component when "Queueing" card is clicked
+    navigate("/Queueopener"); // Navigate to MemoApp component when "Queueing" card is clicked
   };
   return (
     <header className="p-3 text-bg-dark ">

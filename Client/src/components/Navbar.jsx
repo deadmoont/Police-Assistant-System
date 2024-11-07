@@ -53,26 +53,16 @@ function Navbar({ handleProfileClick }) {
                 </li>
                 <li>
                   <div
-<<<<<<< HEAD
-                    href="/MemoApp"
-                    className="nav-link px-2 text-white navbartext"
-=======
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleQueueClick}
->>>>>>> 63f811fdf12d6acb8d040616ec07785ae9eddbc0
                   >
                     Queueing
                   </div>
                 </li>
                 <li>
                   <div
-<<<<<<< HEAD
-                    href="/FileRecord"
-                    className="nav-link px-2 text-white navbartext"
-=======
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleDatabaseClick}
->>>>>>> 63f811fdf12d6acb8d040616ec07785ae9eddbc0
                   >
                     Database
                   </div>

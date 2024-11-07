@@ -52,7 +52,7 @@ function Navbar({ handleProfileClick }) {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <div
                     href="/MemoApp"
                     className="nav-link px-2 text-white navbartext"
                   >
@@ -60,7 +60,7 @@ function Navbar({ handleProfileClick }) {
                   </div>
                 </li>
                 <li>
-                  <a
+                  <div
                     href="/FileRecord"
                     className="nav-link px-2 text-white navbartext"
                   >

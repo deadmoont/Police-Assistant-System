@@ -17,6 +17,9 @@ function Navbar({ handleProfileClick }) {
   const handleQueueClick = () => {
     navigate("/MemoApp"); // Navigate to MemoApp component when "Queueing" card is clicked
   };
+  const handleDepartment = () => {
+    navigate("/DepartmentTracker");
+  };
   return (
     <header className="p-3 text-bg-dark ">
       <div class="d-flex mb-3 navbarcon">
@@ -65,9 +68,12 @@ function Navbar({ handleProfileClick }) {
                   </div>
                 </li>
                 <li>
-                  <a href="#" className="nav-link px-2 text-white navbartext">
+                  <div
+                    className="nav-link px-2 text-white navbartext"
+                    onClick={handleDepartment}
+                  >
                     Staff-Tracker
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

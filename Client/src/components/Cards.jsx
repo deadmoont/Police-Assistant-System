@@ -13,7 +13,9 @@ const Cards = () => {
   const handleQueueClick = () => {
     navigate("/MemoApp"); // Navigate to MemoApp component when "Queueing" card is clicked
   };
-
+  const handleDepartment = () => {
+    navigate("/DepartmentTracker");
+  };
   return (
     <div className="row big-box">
       <div className="mycard" style={{ width: "18rem" }}>
@@ -27,7 +29,11 @@ const Cards = () => {
           <p className="card-text myfont">Camera Monitoring</p>
         </div>
       </div>
-      <div className="mycard" style={{ width: "18rem" }}>
+      <div
+        className="mycard"
+        style={{ width: "18rem" }}
+        onClick={handleDepartment}
+      >
         <img
           src="../Images/TrackerOri.svg"
           className="card-img-top trackerimg"

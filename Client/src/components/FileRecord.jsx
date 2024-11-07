@@ -157,10 +157,22 @@ const FileRecord = () => {
   const [incidentTime, setIncidentTime] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [file, setFile] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+     const formData = {
+    caseNumber,
+    fullName,
+    phoneNumber,
+    email,
+    address: JSON.stringify(address), // make sure address is a JSON string
+    description,
+    category: selectedCategory,
+    incidentDate,
+    incidentTime,
+  };
+
+  console.log("FormData being sent:", formData); // Log formData
     try {
       const formData = new FormData();
       formData.append("caseNumber", caseNumber);
@@ -172,11 +184,8 @@ const FileRecord = () => {
       formData.append("category", selectedCategory);
       formData.append("incidentDate", incidentDate);
       formData.append("incidentTime", incidentTime);
-      if (file) {
-        formData.append("file", file);
-      }
 
-      await apiService.addFileRecord(formData);
+      await apiService.addFileRecord(formData); 
       setSuccessMessage("Record added successfully");
       setErrorMessage("");
       // Reset fields after successful submission
@@ -188,16 +197,12 @@ const FileRecord = () => {
       setDescription("");
       setIncidentDate("");
       setIncidentTime("");
-      setFile(null);
     } catch (error) {
       setErrorMessage("Error adding record. Please try again.");
       setSuccessMessage("");
     }
   };
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
   // const [gender, setGender] = useState(""); // Initialize gender state
   return (
     <>
@@ -324,10 +329,6 @@ const FileRecord = () => {
                 required
               />
             </div>
-          </div>
-          <div className="form-group">
-            <label>Upload Media Files:</label>
-            <input type="file" onChange={handleFileChange} />
           </div>
 
           <div className="form-group">

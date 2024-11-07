@@ -1,9 +1,9 @@
 /* Body and overall page style */
 body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f6f6f4;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light background */
 }
 
 /* Container for the registration form */
@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2; /* Subtle background */
+    background-color: #f6f6f4;
 }
 
 /* Form box */
@@ -22,7 +22,17 @@ body {
     width: 400px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #0078d7; /* Blue border */
+    /* Removed border */
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 50px;
 }
 
 /* Heading */
@@ -35,70 +45,57 @@ h2 {
 }
 
 /* Labels */
-.form-label {
+label {
+    display: block;
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
     color: #333;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 8px;
 }
 
 /* Input fields */
-.form-control {
+input[type="text"],
+input[type="password"] {
     width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #0078d7;
-    border-radius: 3px;
-    margin-bottom: 15px;
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 /* Button */
 .btn {
     width: 100%;
-    padding: 12px;
-    background-color: #0078d7;
+    padding: 0.75rem;
+    background-color: #007c89; /* Updated color */
     color: white;
     border: none;
-    font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #005bb5;
+    background-color: #006a75;
 }
 
-/* Secondary button (login link) */
-.btn-secondary {
-    background-color: white;
-    color: #0078d7;
-    border: 1px solid #0078d7;
-    padding: 10px;
+/* Center the link at the bottom */
+.help-links {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
-.btn-secondary:hover {
-    background-color: #0078d7;
-    color: white;
+.help-links a {
+    font-size: 0.85rem;
+    color: #007c89;
+    text-decoration: none;
 }
 
-p {
-    text-align: center;
-    font-size: 14px;
-}
-
-/* Footer (optional) */
-.footer {
-    text-align: center;
-    font-size: 12px;
-    color: #888;
-    padding: 10px;
-    background-color: #f0f8ff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.help-links a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive design for smaller screens */

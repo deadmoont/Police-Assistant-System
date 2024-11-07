@@ -1,176 +1,11 @@
-// import React, { useState, useEffect } from "react";
-// import "./CSS/MemoApp.css"; // Import your styles
-// import Navbar from "./Navbar.jsx";
-// import Footer from "./Footer.jsx";
-// const MemoApp = () => {
-//   const [applications, setApplications] = useState([]);
-//   const [formData, setFormData] = useState({
-//     subject: "",
-//     description: "",
-//     name: "",
-//     phoneNumber: "",
-//     address: "",
-//   });
-
-//   // Updates the applications every second
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setApplications([...applications]); // Trigger a re-render to update the duration every second
-//     }, 1000);
-
-//     return () => clearInterval(interval); // Cleanup the interval on component unmount
-//   }, [applications]);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const addApplication = () => {
-//     const { subject, description, name, phoneNumber, address } = formData;
-//     if (
-//       subject.trim() &&
-//       description.trim() &&
-//       name.trim() &&
-//       phoneNumber.trim() &&
-//       address.trim()
-//     ) {
-//       const newApplication = {
-//         id: Date.now(),
-//         subject,
-//         description,
-//         name,
-//         phoneNumber,
-//         address,
-//         timestamp: new Date(),
-//       };
-//       setApplications([...applications, newApplication]);
-//       setFormData({
-//         subject: "",
-//         description: "",
-//         name: "",
-//         phoneNumber: "",
-//         address: "",
-//       });
-//     }
-//   };
-
-//   const deleteApplication = (id) => {
-//     setApplications(applications.filter((app) => app.id !== id));
-//   };
-
-//   const getDuration = (timestamp) => {
-//     const now = new Date();
-//     const duration = Math.floor((now - new Date(timestamp)) / 1000); // in seconds
-//     const hours = Math.floor(duration / 3600);
-//     const minutes = Math.floor((duration % 3600) / 60);
-//     const seconds = duration % 60;
-//     return `${hours} hr ${minutes} min ${seconds} sec`;
-//   };
-
-//   return (
-//     <>
-//     <Navbar></Navbar>
-//     <div className="memo-app">
-//       <h1 className="app-title">Application Form</h1>
-//       <div className="input-container">
-//         <input
-//           type="text"
-//           name="subject"
-//           value={formData.subject}
-//           onChange={handleChange}
-//           placeholder="Enter subject"
-//           className="memo-input"
-//         />
-//         <textarea
-//           name="description"
-//           value={formData.description}
-//           onChange={handleChange}
-//           placeholder="Enter description"
-//           className="memo-input"
-//         ></textarea>
-//         <input
-//           type="text"
-//           name="name"
-//           value={formData.name}
-//           onChange={handleChange}
-//           placeholder="Enter applicant name"
-//           className="memo-input"
-//         />
-//         <input
-//           type="tel"
-//           name="phoneNumber"
-//           value={formData.phoneNumber}
-//           onChange={handleChange}
-//           placeholder="Enter phone number"
-//           className="memo-input"
-//         />
-//         <input
-//           type="text"
-//           name="address"
-//           value={formData.address}
-//           onChange={handleChange}
-//           placeholder="Enter address"
-//           className="memo-input"
-//         />
-//         <button onClick={addApplication} className="add-btn">
-//           Submit Application
-//         </button>
-//       </div>
-
-//       <div className="memos-container">
-//         {applications.length === 0 ? (
-//           <p className="empty-message">No applications submitted</p>
-//         ) : (
-//           <div className="memos-grid">
-//             {applications.map((app) => (
-//               <div className="memo-box" key={app.id}>
-//                 <p>
-//                   <strong>Subject:</strong> {app.subject}
-//                 </p>
-//                 <p>
-//                   <strong>Description:</strong> {app.description}
-//                 </p>
-//                 <p>
-//                   <strong>Applicant:</strong> {app.name}
-//                 </p>
-//                 <p>
-//                   <strong>Phone:</strong> {app.phoneNumber}
-//                 </p>
-//                 <p>
-//                   <strong>Address:</strong> {app.address}
-//                 </p>
-//                 <p className="memo-time">
-//                   Submitted {getDuration(app.timestamp)} ago
-//                 </p>
-//                 <button
-//                   className="delete-btn"
-//                   onClick={() => deleteApplication(app.id)}
-//                 >
-//                   Delete
-//                 </button>
-//               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-
-     
-//     </div>
-//     <Footer></Footer>
-//     </>
-//   );
-// };
-
-// export default MemoApp;
-
-
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "./CSS/MemoApp.css";
+import { useNavigate } from "react-router-dom";
 
 const MemoApp = () => {
+  const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
   const [formData, setFormData] = useState({
     subject: "",
@@ -179,6 +14,8 @@ const MemoApp = () => {
     phoneNumber: "",
     address: "",
   });
+  const [message, setMessage] = useState(""); // State for success/error message
+  const [messageType, setMessageType] = useState(""); // State for message type (success or error)
 
   // Updates the applications every second
   useEffect(() => {
@@ -194,7 +31,7 @@ const MemoApp = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const addApplication = () => {
+  const addApplication = async () => {
     const { subject, description, name, phoneNumber, address } = formData;
     if (
       subject.trim() &&
@@ -203,37 +40,44 @@ const MemoApp = () => {
       phoneNumber.trim() &&
       address.trim()
     ) {
-      const newApplication = {
-        id: Date.now(),
-        subject,
-        description,
-        name,
-        phoneNumber,
-        address,
-        timestamp: new Date(),
-      };
-      setApplications([...applications, newApplication]);
-      setFormData({
-        subject: "",
-        description: "",
-        name: "",
-        phoneNumber: "",
-        address: "",
-      });
+      try {
+        const response = await fetch("http://localhost:3001/queue", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            subject,
+            description,
+            name,
+            phoneNumber,
+            address,
+          }),
+        });
+
+        if (response.ok) {
+          const newApplication = await response.json();
+          setApplications([...applications, newApplication]);
+          setFormData({
+            subject: "",
+            description: "",
+            name: "",
+            phoneNumber: "",
+            address: "",
+          });
+          setMessage("Application submitted successfully!");
+          setMessageType("success"); // Success message type
+        } else {
+          setMessage("Failed to add application. Please try again.");
+          setMessageType("error"); // Error message type
+        }
+      } catch (error) {
+        console.error("Error adding application:", error);
+        setMessage("Error submitting application. Please try again.");
+        setMessageType("error"); // Error message type
+      }
+    } else {
+      setMessage("Please fill in all fields before submitting.");
+      setMessageType("error"); // Validation message type
     }
-  };
-
-  const deleteApplication = (id) => {
-    setApplications(applications.filter((app) => app.id !== id));
-  };
-
-  const getDuration = (timestamp) => {
-    const now = new Date();
-    const duration = Math.floor((now - new Date(timestamp)) / 1000); // in seconds
-    const hours = Math.floor(duration / 3600);
-    const minutes = Math.floor((duration % 3600) / 60);
-    const seconds = duration % 60;
-    return `${hours} hr ${minutes} min ${seconds} sec`;
   };
 
   return (
@@ -304,44 +148,19 @@ const MemoApp = () => {
           <button onClick={addApplication} className="save-button">
             Submit Application
           </button>
-        </div>
 
-        <div className="memos-container">
-          {applications.length === 0 ? (
-            <p className="empty-message">No applications submitted</p>
-          ) : (
-            <div className="memos-grid">
-              {applications.map((app) => (
-                <div className="memo-box" key={app.id}>
-                  <p>
-                    <strong>Subject:</strong> {app.subject}
-                  </p>
-                  <p>
-                    <strong>Description:</strong> {app.description}
-                  </p>
-                  <p>
-                    <strong>Applicant:</strong> {app.name}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {app.phoneNumber}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> {app.address}
-                  </p>
-                  <p className="memo-time">
-                    Submitted {getDuration(app.timestamp)} ago
-                  </p>
-                  <button
-                    className="delete-btn"
-                    onClick={() => deleteApplication(app.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              ))}
-            </div>
+          {message && (
+            <p
+              className="submission-message"
+              style={{
+                color: messageType === "success" ? "green" : "red",
+              }}
+            >
+              {message}
+            </p>
           )}
         </div>
+        
       </div>
       <Footer />
     </>
@@ -349,7 +168,3 @@ const MemoApp = () => {
 };
 
 export default MemoApp;
-
-
-
-

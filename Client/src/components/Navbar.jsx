@@ -15,7 +15,7 @@ function Navbar({ handleProfileClick }) {
     navigate("/Home");
   };
   const handleQueueClick = () => {
-    navigate("/MemoApp"); // Navigate to MemoApp component when "Queueing" card is clicked
+    navigate("/Queueopener"); // Navigate to MemoApp component when "Queueing" card is clicked
   };
   const handleDepartment = () => {
     navigate("/DepartmentTracker");
@@ -52,17 +52,29 @@ function Navbar({ handleProfileClick }) {
                   </a>
                 </li>
                 <li>
+<<<<<<< HEAD
+                  <a
+                    href="/MemoApp"
+                    className="nav-link px-2 text-white navbartext"
+=======
                   <div
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleQueueClick}
+>>>>>>> 6b43f3f3b4480189665bd6f6de90f00af08702a5
                   >
                     Queueing
                   </div>
                 </li>
                 <li>
+<<<<<<< HEAD
+                  <a
+                    href="/FileRecord"
+                    className="nav-link px-2 text-white navbartext"
+=======
                   <div
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleDatabaseClick}
+>>>>>>> 6b43f3f3b4480189665bd6f6de90f00af08702a5
                   >
                     Database
                   </div>

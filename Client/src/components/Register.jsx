@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import "./CSS/Register.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -49,12 +49,17 @@ const Register = () => {
   return (
     <div className="registration-container">
       <div className="form-box">
+        <div className="logo">
+          <img src="../Images/Logo2.svg" alt="Mailchimp Logo" />
+        </div>
         <h2>
           <strong>Register</strong>
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3 text-start">
-            <label htmlFor="exampleInputName" className="form-label">
+          {/* <div className="mb-3 text-start"> */}
+            <label htmlFor="exampleInputName"
+            //  className="form-label"
+             >
               <strong>Name</strong>
             </label>
             <input
@@ -65,9 +70,11 @@ const Register = () => {
               onChange={(event) => setName(event.target.value)}
               required
             />
-          </div>
-          <div className="mb-3 text-start">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+          {/* </div> */}
+          {/* <div className="mb-3 text-start"> */}
+            <label htmlFor="exampleInputEmail1"
+            //  className="form-label"
+             >
               <strong>Email Id</strong>
             </label>
             <input
@@ -78,9 +85,11 @@ const Register = () => {
               onChange={(event) => setEmail(event.target.value)}
               required
             />
-          </div>
-          <div className="mb-3 text-start">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+          {/* </div> */}
+          <div className="password-container">
+            <label htmlFor="exampleInputPassword1"
+            //  className="form-label"
+             >
               <strong>Password</strong>
             </label>
             <input
@@ -116,13 +125,9 @@ const Register = () => {
             Register
           </button>
         </form>
-   <div className="help-links">
-   <Link to="/login" >
-        Already have an account?
-        </Link>
-   </div>
-      
-        
+        <div className="help-links">
+          <Link to="/login">Already have an account?</Link>
+        </div>
       </div>
     </div>
   );

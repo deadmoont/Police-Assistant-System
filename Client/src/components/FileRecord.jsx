@@ -219,6 +219,10 @@ const FileRecord = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               required
+              minLength="10"
+              maxLength="10"
+              pattern="\d{10}"
+
             />
           </div>
         </div>
@@ -280,6 +284,10 @@ const FileRecord = () => {
                   setAddress({ ...address, zipCode: e.target.value })
                 }
                 required
+                minLength="6"
+                maxLength="6"
+                pattern="\d{6}"
+
               />
             </div>
           </div>
@@ -292,6 +300,7 @@ const FileRecord = () => {
                 value={incidentDate}
                 onChange={(e) => setIncidentDate(e.target.value)}
                 required
+                max={new Date().toISOString().split("T")[0]}
               />
             </div>
 

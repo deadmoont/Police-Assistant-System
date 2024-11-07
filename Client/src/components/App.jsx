@@ -8,10 +8,17 @@ import FileRecord from "./FileRecord";
 import UserRegister from "./UserRegister";
 import MemoApp from "./MemoApp";
 // import "../styles/App.css"; // Import the styles
+import AllQueries from "./AllQueries";
+import QueriesFinished from "./QueriesFinished";
+import Queueopener from "./Queueopener";
+import AttendanceList from "./AttendanceList";
+import DepartmentTracker from "./DepartmentTracker";
+import PersonnelList from "./PersonnelList";
+
 
 function AppContent() {
   return (
-    <div>
+    <div >
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/register" element={<Register />} />
@@ -22,7 +29,12 @@ function AppContent() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/FileRecord" element={<FileRecord />} />
         <Route path="/MemoApp" element={<MemoApp />} />
-
+        <Route path="/all-queries" element={<AllQueries />} />
+        <Route path="/queries-finished" element={<QueriesFinished />} />
+        <Route path="/Queueopener" element={<Queueopener/>}/>
+        <Route path="/PersonnelList" element={<PersonnelList/>}/>
+        <Route path="/AttendanceList" element={<AttendanceList/>}/>
+        <Route path="/DepartmentTracker" element={<DepartmentTracker/>}/>
         {/* No need to pass category here */}
       </Routes>
     </div>

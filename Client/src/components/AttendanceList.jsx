@@ -72,7 +72,7 @@ const AttendanceList = ({
   );
 
   return (
-    <div className="container">
+    <div className="containers">
       <h2>Attendance List</h2>
 
       <div className="filter">
@@ -108,7 +108,7 @@ const AttendanceList = ({
 
       <ul>
         {sortedPersonnel.map((person) => (
-          <li key={person.id}>
+          <li key={person.id} className="lid"> 
             {person.name} - {person.status}
             <div>
               <button onClick={() => toggleStatus(person.id)}>

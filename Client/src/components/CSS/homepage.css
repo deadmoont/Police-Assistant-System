@@ -7,13 +7,15 @@ Basic resets
  }
     
 body{
-  background-color: white !important;
+  background-color:white !important;
+  
   
 }
 .homepage{
   background-color: white;
   
 }
+
 
 .mycard{
     border: 2px solid black;
@@ -55,6 +57,7 @@ body{
   padding: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 body {

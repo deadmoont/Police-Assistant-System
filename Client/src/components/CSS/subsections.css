@@ -58,7 +58,7 @@ main .section {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    min-height: 100vh;
 }
 
 main .section h2 {

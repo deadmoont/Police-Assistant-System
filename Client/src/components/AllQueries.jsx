@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./CSS/AllQueries.css"; // Import the CSS file for styling
+import "./CSS/AllQueries.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
-  const [filteredQueries, setFilteredQueries] = useState([]); // State for filtered queries
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredQueries, setFilteredQueries] = useState([]);
 
   useEffect(() => {
     const fetchQueries = async () => {
@@ -17,7 +17,7 @@ const AllQueries = () => {
         }
         const data = await response.json();
         setQueries(data);
-        setFilteredQueries(data); // Initialize filtered queries with all data
+        setFilteredQueries(data);
       } catch (error) {
         console.error("Error fetching queries:", error);
       }
@@ -31,12 +31,12 @@ const AllQueries = () => {
       const response = await fetch(`http://localhost:3001/queue/${id}/done`, {
         method: "POST",
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to move query to done");
       }
-  
+
       setQueries((prevQueries) => prevQueries.filter((query) => query._id !== id));
       setFilteredQueries((prevQueries) => prevQueries.filter((query) => query._id !== id));
     } catch (error) {
@@ -45,7 +45,6 @@ const AllQueries = () => {
     }
   };
 
-  // Filter queries based on the phone number search term
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     const filtered = queries.filter((query) =>
@@ -60,7 +59,6 @@ const AllQueries = () => {
       <div className="memos-container">
         <h2>All Queries</h2>
         
-        {/* Search Input */}
         <input
           type="text"
           placeholder="Search by Phone Number"
@@ -71,8 +69,9 @@ const AllQueries = () => {
         
         <div className="memo-grid">
           {filteredQueries.length > 0 ? (
-            filteredQueries.map((query) => (
+            filteredQueries.map((query, index) => (
               <div key={query._id} className="memo-box">
+                <h3 className="queue1">{index + 1}</h3>
                 <h3 className="heading1">Subject: {query.subject}</h3>
                 <p className="bolder"> <strong>Description:</strong> {query.description}</p>
                 <p className="bolder"> <strong>Applicant Name:</strong> {query.name}</p>

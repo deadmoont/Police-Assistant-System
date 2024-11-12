@@ -5,32 +5,30 @@ import Footer from "./Footer";
 
 const QueriesFinished = () => {
   const [doneQueries, setDoneQueries] = useState([]);
-  const [searchPhone, setSearchPhone] = useState(""); // State for search query
-  const [filteredQueries, setFilteredQueries] = useState([]); // State for filtered queries
+  const [searchPhone, setSearchPhone] = useState("");
+  const [filteredQueries, setFilteredQueries] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/done")
       .then((response) => response.json())
       .then((data) => {
         setDoneQueries(data);
-        setFilteredQueries(data); // Initialize filteredQueries with all queries
+        setFilteredQueries(data);
       })
       .catch((error) => console.error("Error fetching done queries:", error));
   }, []);
 
-  // Function to handle search input change
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchPhone(value);
 
-    // Filter the queries based on phone number
     if (value.trim() !== "") {
       const filtered = doneQueries.filter((query) =>
         query.phoneNumber.includes(value)
       );
       setFilteredQueries(filtered);
     } else {
-      setFilteredQueries(doneQueries); // Reset when search is cleared
+      setFilteredQueries(doneQueries);
     }
   };
 
@@ -40,7 +38,6 @@ const QueriesFinished = () => {
       <div className="memos-container">
         <h2>Finished Queries</h2>
 
-        {/* Search Input */}
         <div className="search-container">
           <input
             type="text"
@@ -53,8 +50,9 @@ const QueriesFinished = () => {
 
         {filteredQueries.length > 0 ? (
           <div className="memo-grid">
-            {filteredQueries.map((query) => (
+            {filteredQueries.map((query, index) => (
               <div key={query._id} className="memo-box">
+                <h3 className="queue1"> {index + 1}</h3>
                 <h3 className="heading1">Subject: {query.subject}</h3>
                 <p><strong>Description:</strong> {query.description}</p>
                 <p><strong>Applicant Name:</strong> {query.name}</p>

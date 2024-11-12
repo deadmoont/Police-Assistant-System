@@ -36,6 +36,8 @@ const Home = () => {
     navigate(`/Profile?email=${userData.email}`);
   };
 
+
+
   const handleDatabaseClick = () => {
     navigate(`/FileRecord`); // Navigate to the FileRecord component when the database icon is clicked
   };

@@ -20,6 +20,9 @@ function Navbar({ handleProfileClick }) {
   const handleDepartment = () => {
     navigate("/DepartmentTracker");
   };
+  const handleCameraClick = () => {
+    navigate("/cam-monitor");
+  };
   return (
     <header className="p-3 text-bg-dark ">
       <div class="d-flex mb-3 navbarcon">
@@ -47,7 +50,11 @@ function Navbar({ handleProfileClick }) {
                   </div>
                 </li>
                 <li>
-                  <a href="#" className="nav-link px-2 text-white navbartext">
+                  <a
+                    href="#"
+                    className="nav-link px-2 text-white navbartext"
+                    onClick={handleCameraClick}
+                  >
                     Camera-Monitoring
                   </a>
                 </li>

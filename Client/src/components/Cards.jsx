@@ -16,9 +16,17 @@ const Cards = () => {
   const handleDepartment = () => {
     navigate("/DepartmentTracker");
   };
+
+  const handleCameraClick = () => {
+    navigate("/cam-monitor");
+  };
   return (
     <div className="row big-box">
-      <div className="mycard" style={{ width: "18rem" }}>
+      <div
+        className="mycard"
+        style={{ width: "18rem" }}
+        onClick={handleCameraClick}
+      >
         <img
           src="../Images/CameraFoo.svg"
           className="card-img-top"

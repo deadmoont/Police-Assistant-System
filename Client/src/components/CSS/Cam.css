@@ -1,0 +1,180 @@
+/* Basic styling for the entire page */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Ensure the whole screen is used for video */
+.video-container {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 200px;
+  padding-left: 200px;
+}
+
+/* Styling for the video */
+.video-side {
+  position: relative;
+  width: 80%;
+  height: 100%;
+}
+
+.react-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Styling for license plate list */
+.plate-side {
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 20%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  z-index: 10;
+}
+
+/* Box for each license plate */
+.plate-box {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight most recent plate */
+.plate-box.highlight {
+  background-color: #ff6347;
+}
+
+/* Styling for the last identified plate */
+.last-plate {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #444;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+  color: #fff;
+}
+
+/* Speed Limit Violation Heading */
+.speed-limit-violation {
+  position: fixed;
+  top: 20px;
+  left: 43%;
+  transform: translateX(-50%);
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+/* Info Panel Styles */
+.info-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.panel-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  color: #333;
+}
+
+.panel-content h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.panel-content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.panel-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.close-btn {
+  background-color: #ff6347;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.close-btn:hover {
+  background-color: #e5533c;
+}
+
+/* Street Info Card Styles */
+.street-info-card {
+  position: fixed;
+  bottom: 20px;
+  left: 43%;
+  transform: translateX(-50%);
+  background-color: #444;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.street-info-card h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.street-info-card p {
+  margin: 5px 0;
+}

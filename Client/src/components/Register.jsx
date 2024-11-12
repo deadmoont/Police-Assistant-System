@@ -57,45 +57,48 @@ const Register = () => {
         </h2>
         <form onSubmit={handleSubmit}>
           {/* <div className="mb-3 text-start"> */}
-            <label htmlFor="exampleInputName"
+          <label
+            htmlFor="exampleInputName"
             //  className="form-label"
-             >
-              <strong>Name</strong>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter Name"
-              className="form-control"
-              id="exampleInputName"
-              onChange={(event) => setName(event.target.value)}
-              required
-            />
+          >
+            <strong>Name</strong>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            className="registerFormControl"
+            id="exampleInputName"
+            onChange={(event) => setName(event.target.value)}
+            required
+          />
           {/* </div> */}
           {/* <div className="mb-3 text-start"> */}
-            <label htmlFor="exampleInputEmail1"
+          <label
+            htmlFor="exampleInputEmail1"
             //  className="form-label"
-             >
-              <strong>Email Id</strong>
-            </label>
-            <input
-              type="email"
-              placeholder="Enter Email"
-              className="form-control"
-              id="exampleInputEmail1"
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
+          >
+            <strong>Email Id</strong>
+          </label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            className="registerFormControl"
+            id="exampleInputEmail1"
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
           {/* </div> */}
           <div className="password-container">
-            <label htmlFor="exampleInputPassword1"
-            //  className="form-label"
-             >
+            <label
+              htmlFor="exampleInputPassword1"
+              //  className="form-label"
+            >
               <strong>Password</strong>
             </label>
             <input
               type="password"
               placeholder="Enter Password"
-              className="form-control"
+              className="registerFormControl"
               id="exampleInputPassword1"
               onChange={(event) => setPassword(event.target.value)}
               required

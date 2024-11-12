@@ -60,14 +60,19 @@ const ForgotPassword = () => {
 
     return (
         <div className="forgot-password-container">
+            <div className="form-box">
+            <div className="logo">
+          <img src="../Images/Logo2.svg" alt="Mailchimp Logo" />
+        </div>
             <h2>Forgot Password</h2>
             {!otpSent ? (
                 <form onSubmit={handleSendOtp}>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email</label>
+                        
                         <input 
                             type="email" 
-                            className="form-control" 
+                            className="form-control " 
                             id="email" 
                             placeholder="Enter your email"
                             value={email}
@@ -110,7 +115,8 @@ const ForgotPassword = () => {
                     <button type="submit" className="btn btn-primary">Change Password</button>
                 </form>
             )}
-        </div>
+            </div>
+       </div>
     );
 };
 

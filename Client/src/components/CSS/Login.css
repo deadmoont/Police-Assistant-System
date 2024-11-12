@@ -237,4 +237,15 @@ body {
     font-size: 0.85rem;
     color: #007c89;
   }
+
+  /* Form box */
+.form-box {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Removed border */
+}
+
   

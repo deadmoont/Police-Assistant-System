@@ -1,101 +1,101 @@
-/* Base Styling */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #fdfefe;
-  margin: 0;
-
-}
-
-/* Main Container Styling */
-.container2 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Flexbox Layout for Side-by-Side Display */
-.app-container {
+/* DepartmentTracker.css */
+.department-tracker {
   display: flex;
   gap: 20px;
-}
-
-/* Individual Component Styling */
-.component-container2 {
-  flex: 1;
-  background-color: #f9f9f9;
-  border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ /* min-height: calc(100vh - 250px); /* Ensure the page stretches to fill the viewport height */
 }
 
-/* Header Styling */
-h2 {
-  color: #333;
+.employee-list {
+  width: 45%;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-list h2 {
   text-align: center;
-  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Input Group Styling */
-.input-group {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+.employee-list table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-input[type="text"], select {
-  width: calc(50% - 10px);
-  padding: 10px;
-  border: 1px solid #faebeb;
-  border-radius: 5px;
-}
-
-/* Button Styling */
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
+.employee-list table thead {
   background-color: #007bff;
   color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-button:hover {
+.employee-list table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.employee-profile {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.employee-profile h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.employee-profile p {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.employee-profile button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.employee-profile button:hover {
   background-color: #0056b3;
 }
 
-/* List Styling */
-ul {
-  list-style-type: none;
-  padding: 0;
+/* Position the export button above the footer */
+.export-attendance {
+  position: absolute;
+  right: 20px;
+  bottom: 80px; /* Move it above the footer */
+  z-index: 10;
 }
 
-/* List Item Styling */
-.lid{
-  background: #ffffff;
-  padding: 10px;
-  margin: 5px 0;
+.export-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-li button {
-  margin-left: 5px;
+.export-button:hover {
+  background-color: #0056b3;
 }
 
-/* Filter Section Styling */
-.filter {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.filter select {
-  width: auto;
+/* Ensure the footer stays at the bottom of the page */
+footer {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  background-color: #f1f1f1;
+  text-align: center;
+  border-top: 1px solid #ccc;
 }

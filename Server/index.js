@@ -6,6 +6,8 @@ const Record = require("./models/Record");
 const nodemailer = require("nodemailer");
 const Queue = require("./models/Queue");
 const Done = require("./models/Done");
+const Employee = require("./models/Employee");
+
 //const recordRoutes = require('./routes/recordRoutes'); // Import the record routes
 
 const app = express();
@@ -305,6 +307,38 @@ app.get("/done", async (req, res) => {
   }
 });
 
+app.get("/api/employees", async (req, res) => {
+  try {
+    const employees = await Employee.find();
+    res.json(employees);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.put("/api/employees/:id", async (req, res) => {
+  try {
+    const updateData = {
+      working: req.body.working,
+      status: req.body.status || "present", // Add status update if provided
+    };
+
+    if (req.body.working === "busy") {
+      updateData.desc = req.body.desc || "No description provided";
+    } else {
+      updateData.desc = "";
+    }
+
+    const employee = await Employee.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+    res.json(employee);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 // Handle 404 - Not Found
 app.use((req, res, next) => {
   res.status(404).json({ message: "Not Found" });

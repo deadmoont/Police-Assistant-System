@@ -53,7 +53,7 @@ const Register = () => {
           <img src="../Images/Logo2.svg" alt="Mailchimp Logo" />
         </div>
         <h2>
-          <strong>Register</strong>
+         <center><strong>Register</strong></center> 
         </h2>
         <form onSubmit={handleSubmit}>
           {/* <div className="mb-3 text-start"> */}
@@ -124,7 +124,7 @@ const Register = () => {
                         />
                     </div>
                     */}
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" style={{marginTop:"20px"}}>
             Register
           </button>
         </form>

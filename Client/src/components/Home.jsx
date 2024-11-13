@@ -50,8 +50,12 @@ const Home = () => {
       {/* Add a button or icon for database navigation */}
 
       <Cards />
+<<<<<<< HEAD
       <Announcements />
       <HomePageText />
+=======
+     
+>>>>>>> ec1ae14e79d8cf6161ef51771bf2e0e40df3f99f
       <Footer />
     </div>
   );

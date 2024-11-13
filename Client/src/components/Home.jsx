@@ -51,6 +51,7 @@ const Home = () => {
      
 
       <Cards />
+     
       <Footer />
     </div>
   );

@@ -50,13 +50,13 @@ function Navbar({ handleProfileClick }) {
                   </div>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <div
+                   
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleCameraClick}
                   >
                     Camera-Monitoring
-                  </a>
+                  </div>
                 </li>
                 <li>
                   <div

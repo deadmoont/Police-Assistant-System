@@ -11,7 +11,7 @@ html {
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
-  height: 100vh;
+  height: 75vh;
   width: 100%;
   overflow: hidden;
   padding-top: 200px;
@@ -23,6 +23,12 @@ html {
   position: relative;
   width: 80%;
   height: 100%;
+  margin-left: 130px;
+ margin-bottom: 120px;
+ 
+ border-radius: 8px;
+ 
+  
 }
 
 .react-player {
@@ -34,17 +40,17 @@ html {
 /* Styling for license plate list */
 .plate-side {
   position: absolute;
-  top: 0;
+  top: 135px;
   left: 80%;
   width: 20%;
-  height: 100%;
+  height: 75%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #c6c6c6;
   color: white;
   font-size: 18px;
   z-index: 10;
@@ -52,7 +58,7 @@ html {
 
 /* Box for each license plate */
 .plate-box {
-  background-color: #333;
+  background-color: #686868;
   color: white;
   padding: 10px;
   margin: 5px 0;
@@ -67,7 +73,7 @@ html {
 
 /* Highlight most recent plate */
 .plate-box.highlight {
-  background-color: #ff6347;
+  background-color: #007c89;
 }
 
 /* Styling for the last identified plate */
@@ -76,11 +82,11 @@ html {
   font-size: 30px;
   font-weight: bold;
   padding: 20px;
-  background-color: #444;
+  background-color:#686868;
   text-align: center;
   border-radius: 10px;
   width: 100%;
-  color: #fff;
+  color: white;
 }
 
 /* Speed Limit Violation Heading */
@@ -110,6 +116,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 20;
+ 
 }
 
 .panel-content {
@@ -119,6 +126,8 @@ html {
   max-width: 500px;
   width: 90%;
   color: #333;
+  border: 5px solid #016671;
+ 
 }
 
 .panel-content h2 {
@@ -138,7 +147,7 @@ html {
 }
 
 .close-btn {
-  background-color: #ff6347;
+  background-color: #007c89;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -150,21 +159,22 @@ html {
 }
 
 .close-btn:hover {
-  background-color: #e5533c;
+  background-color: #007c89;
 }
 
 /* Street Info Card Styles */
 .street-info-card {
   position: fixed;
-  bottom: 20px;
-  left: 43%;
+  bottom: 185px;
+  left: 9%;
+ margin-bottom: 320px;
   transform: translateX(-50%);
-  background-color: #444;
+  background-color: #686868;
   color: white;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
-  max-width: 400px;
+  max-width: 300px;
   text-align: center;
   font-size: 18px;
 }
@@ -177,4 +187,12 @@ html {
 
 .street-info-card p {
   margin: 5px 0;
+  color: white;
+}
+
+.last-plate p{
+      color: white;
+}
+.street-info-p{
+  color: white;
 }

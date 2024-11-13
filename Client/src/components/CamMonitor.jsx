@@ -110,7 +110,7 @@ function App() {
           </div>
 
           <div className="last-plate">
-            <p>Last Identified Plate: {lastPlate}</p>
+            <p style={{ color: "white" }}>Last Identified Plate: {lastPlate}</p>
           </div>
         </div>
 
@@ -158,19 +158,26 @@ function App() {
         <div className="street-info-card">
           <h3>Street Information</h3>
           <p>
-            <strong>Street:</strong> {streetInfo.street}
+            <strong style={{ color: "yellow" }}>Street:</strong>{" "}
+            {/* <style = {{ color: "white" }}>
+             {streetInfo.street}
+            </style> */}
+            <span style={{ color: "white" }}>{streetInfo.street}</span>
           </p>
           {/* <p>
             <strong>City:</strong> {streetInfo.city}
           </p> */}
           <p>
-            <strong>State:</strong> {streetInfo.state}
+            <strong style={{ color: "yellow" }}>State:</strong>{" "}
+            <span style={{ color: "white" }}>{streetInfo.state}</span>
           </p>
           <p>
-            <strong>Pincode:</strong> {streetInfo.pincode}
+            <strong style={{ color: "yellow" }}>Pincode:</strong>{" "}
+            <span style={{ color: "white" }}> {streetInfo.pincode}</span>
           </p>
           <p>
-            <strong>Monitoring Zone:</strong> {streetInfo.cameraZone}
+            <strong style={{ color: "yellow" }}>Monitoring Zone:</strong>{" "}
+            <span style={{ color: "white" }}>{streetInfo.cameraZone}</span>
           </p>
         </div>
       </div>

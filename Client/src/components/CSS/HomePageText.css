@@ -1,0 +1,43 @@
+/* HomePageText.css */
+.mybox{
+  width: 40%;
+  align-items: left;
+  translate: -20rem -10rem;
+  border-right: 2px solid rgb(201, 197, 197);
+  background-color: white !important;
+}
+.scrolling-box {
+  height: 150px; /* Set a height for the scrolling box */
+  overflow: hidden;
+  position: relative;
+  padding-left: 20px; /* Adjust padding for bullet alignment */
+  text-align: left; /* Align text to the left */
+  background-color: white !important;
+}
+
+.scrolling-text {
+  list-style-type: disc;
+  color: rgb(158, 23, 59);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  animation: scroll-vertical 10s linear infinite;
+}
+
+.scrolling-text li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.speaker{
+  translate: 2.5rem -4rem;
+}

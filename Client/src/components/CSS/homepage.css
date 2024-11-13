@@ -43,14 +43,12 @@ body{
   .trackerimg{
     height: 200px;
   }
-  .navbartext{
-    font-size: 18px;
-  }
   .navbarcon{
     align-items: center;
     height: 100%;
     font-weight: 600;
     font-style: oblique;
+    
   }
   html, body {
   height: 100%;  /* Ensure that the body fills the height of the viewport */
@@ -60,7 +58,12 @@ body{
   flex-direction: column;
   width: 100%;
 }
-
+.container{
+  font-size: 28px;
+}
+.overallcon{
+  height: 150px;
+}
 body {
   display: flex;
   flex-direction: column;

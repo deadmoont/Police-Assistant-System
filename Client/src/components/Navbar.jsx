@@ -24,7 +24,7 @@ function Navbar({ handleProfileClick }) {
     navigate("/cam-monitor");
   };
   return (
-    <header className="p-3 text-bg-dark ">
+    <header className="p-3 text-bg-dark overallcon">
       <div class="d-flex mb-3 navbarcon">
         <div class="p-2">
           <a href="/" className="">
@@ -32,15 +32,18 @@ function Navbar({ handleProfileClick }) {
               src="../Images/Logo2.svg"
               alt="Logo"
               class="img-fluid"
-              width="45" //72
-              height="45" //57
+              width="80" //72
+              height="80" //57
             />
           </a>
         </div>
         <div class="p-2">
           <div className="container">
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-              <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <ul
+                className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+                style={{ justifyContent: "space-between", gap: "100px" }}
+              >
                 <li>
                   <div
                     className="nav-link px-2 text-white navbartext"
@@ -50,13 +53,12 @@ function Navbar({ handleProfileClick }) {
                   </div>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <div
                     className="nav-link px-2 text-white navbartext"
                     onClick={handleCameraClick}
                   >
                     Camera-Monitoring
-                  </a>
+                  </div>
                 </li>
                 <li>
                   <div

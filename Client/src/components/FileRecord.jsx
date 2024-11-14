@@ -205,7 +205,7 @@ const FileRecord = () => {
           <div className="form-group">
             <label>Case Number:</label>
             <input
-              type="text"
+              type="number"
               value={caseNumber}
               onChange={(e) => setCaseNumber(e.target.value)}
               required
@@ -277,7 +277,7 @@ const FileRecord = () => {
             <div className="form-group">
               <label>Zip Code:</label>
               <input
-                type="text"
+                type="number"
                 placeholder="Zip Code"
                 value={address.zipCode}
                 onChange={(e) =>

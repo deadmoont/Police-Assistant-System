@@ -23,6 +23,12 @@ const DepartmentTracker = () => {
   };
 
   const toggleWorkingStatus = () => {
+    // Prevent marking as busy if the employee is absent
+    if (selectedEmployee.status === "absent" && selectedEmployee.working === "free") {
+      alert("This employee is marked as absent and cannot be assigned work.");
+      return;
+    }
+
     const updatedStatus = selectedEmployee.working === "free" ? "busy" : "free";
 
     if (updatedStatus === "busy" && !description.trim()) {
@@ -61,23 +67,20 @@ const DepartmentTracker = () => {
     doc.text("Attendance Report", 10, 10);
     doc.setFontSize(12);
 
-    // Create table headers
     const headers = ['Name', 'Attendance Status'];
     const rows = employees.map(emp => [
       emp.name,
       emp.status === "present" ? "Present" : "Absent"
     ]);
 
-    // Draw table
     doc.autoTable({
       head: [headers],
       body: rows,
-      startY: 20, // Start table after title
-      theme: 'striped', // Table theme (you can change it)
+      startY: 20,
+      theme: 'striped',
       margin: { top: 10 }
     });
 
-    // Save the PDF
     doc.save(`Attendance_Report_${new Date().toLocaleDateString()}.pdf`);
   };
 
@@ -157,14 +160,11 @@ const DepartmentTracker = () => {
         </div>
       )}
 
-      {/* Export Attendance button on the right side */}
       <div className="export-attendance">
         <button onClick={exportAttendance} className="export-button">
           Export Attendance as PDF
         </button>
       </div>
-
-      
     </div>
   );
 };

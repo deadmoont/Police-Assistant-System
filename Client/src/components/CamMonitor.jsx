@@ -5,6 +5,7 @@ import Video from "./out.mp4"; // Ensure your video file is in the same director
 import "./CSS/Cam.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { FaWindowClose } from "react-icons/fa";
 function App() {
   const [licensePlates, setLicensePlates] = useState([]); // Store the license plate data
   const [lastPlate, setLastPlate] = useState(""); // Store the last identified license plate
@@ -83,7 +84,7 @@ function App() {
 
   return (
     <div className="App">
-    <Navbar></Navbar>
+      <Navbar></Navbar>
       <div className="video-container">
         <div className="video-side">
           <ReactPlayer
@@ -112,16 +113,17 @@ function App() {
           </div>
 
           <div className="last-plate">
-            <p>Last Identified Plate: {lastPlate}</p>
+            <p style={{ color: "white" }}>Last Identified Plate: {lastPlate}</p>
           </div>
         </div>
 
         {/* Speed Limit Violation Heading */}
-       
+
         {/* Modal Panel for driver information */}
         {selectedPlate && (
           <div className="info-panel">
-            <div className="panel-content"> 
+            <div className="panel-content">
+              <FaWindowClose className="close-icon" onClick={closePanel} />
               <h2>Driver Information</h2>
               <p>
                 <strong>Name:</strong> {driverInfo.name}
@@ -156,20 +158,22 @@ function App() {
         {/* Postcard-style Street Info Section */}
         <div className="street-info-card">
           <h3>Street Information</h3>
-          <p >
-            <strong style={{color:"white"}}>Street:</strong> {streetInfo.street}
+          <p>
+            <span style={{ color: "white" }}>Street:</span> {streetInfo.street}
           </p>
           {/* <p>
             <strong>City:</strong> {streetInfo.city}
           </p> */}
-          <p >
-            <strong style={{color:"white"}}>State:</strong> {streetInfo.state}
+          <p>
+            <span style={{ color: "white" }}>State:</span> {streetInfo.state}
           </p>
-          <p >
-            <strong style={{color:"white"}}>Pincode:</strong> {streetInfo.pincode}
+          <p>
+            <span style={{ color: "white" }}>Pincode:</span>{" "}
+            {streetInfo.pincode}
           </p>
-          <p >
-            <strong style={{color:"white"}}>Monitoring Zone:</strong> {streetInfo.cameraZone}
+          <p>
+            <span style={{ color: "white" }}>Monitoring Zone:</span>{" "}
+            {streetInfo.cameraZone}
           </p>
         </div>
       </div>

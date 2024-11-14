@@ -43,15 +43,15 @@ h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
 }
-
+/* 
 .registerFormControl {
-    width:100%;
+    width:100px;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #d2d2d2;
     border-radius: 3px;
     margin-bottom: 15px;
-}
+} */
 
 /* Labels */
 label {
@@ -105,6 +105,31 @@ input[type="password"] {
 
 .help-links a:hover {
     text-decoration: underline;
+}
+
+#exampleInputName{
+    width:100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+#exampleInputEmail1{
+    width:100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+#exampleInputPassword1{
+    width:100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    margin-bottom: 15px;
 }
 
 /* Responsive design for smaller screens */

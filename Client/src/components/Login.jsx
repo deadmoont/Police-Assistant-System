@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -35,21 +33,24 @@ const Login = () => {
         <div className="logo">
           <img src="../Images/Logo2.svg" alt="Mailchimp Logo" />
         </div>
-        <h2>Log in</h2>
         
+          <h2>
+            <center> <strong>Log in</strong></center></h2>
+        
+
         <form onSubmit={handleSubmit}>
-        <div className="password-container">
-          <label htmlFor="exampleInputEmail1">Email</label>
-          {/* <input type="text" id="username" name="username" /> */}
-          <input
-            type="email"
-            placeholder="Enter Email"
-            id="exampleInputEmail1"
-             className="form-control"
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-                     </div>
+          <div className="password-container">
+            <label htmlFor="exampleInputEmail1">Email</label>
+            {/* <input type="text" id="username" name="username" /> */}
+            <input
+              type="email"
+              placeholder="Enter Email"
+              id="exampleInputEmail1"
+              className="form-control"
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+          </div>
           <label htmlFor="exampleInputPassword1">Password</label>
           <div className="password-container">
             {/* <input
@@ -81,11 +82,10 @@ const Login = () => {
           <button type="submit" className="login-btn">
             Log in
           </button>
-          <p >
-          Need a PDAS account?
-         
-          <Link to="/register">Create an account</Link>
-        </p>
+          <p style={{marginTop:"20px"}}>
+            Need a PDAS account?
+            <Link to="/register">Create an account</Link>
+          </p>
           <div className="help-links">
             {/* <a href="/forgot-username">Forgot username?</a> */}
             {/* <a href="/forgot-password">Forgot password?</a> */}

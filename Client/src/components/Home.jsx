@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom"; // Make sure you import th
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Cards from "./Cards";
+import HomePageText from "./HomePageText";
+import Announcements from "./Announcements";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,8 +38,6 @@ const Home = () => {
     navigate(`/Profile?email=${userData.email}`);
   };
 
-
-
   const handleDatabaseClick = () => {
     navigate(`/FileRecord`); // Navigate to the FileRecord component when the database icon is clicked
   };
@@ -48,9 +48,10 @@ const Home = () => {
       <Navbar handleProfileClick={handleProfileClick} />
 
       {/* Add a button or icon for database navigation */}
-     
 
       <Cards />
+      <Announcements />
+      <HomePageText />
       <Footer />
     </div>
   );

@@ -40,7 +40,7 @@ html {
 /* Styling for license plate list */
 .plate-side {
   position: absolute;
-  top: 135px;
+  top: 150px;
   left: 80%;
   width: 20%;
   height: 75%;
@@ -165,7 +165,7 @@ html {
 /* Street Info Card Styles */
 .street-info-card {
   position: fixed;
-  bottom: 185px;
+  bottom: 170px;
   left: 9%;
  margin-bottom: 320px;
   transform: translateX(-50%);

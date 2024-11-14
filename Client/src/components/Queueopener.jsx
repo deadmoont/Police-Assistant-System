@@ -22,7 +22,7 @@ const Queueopener = () => {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="container5">
         <div className="cardcont">
           <div className="card" style={{ width: "18rem" }}>
             <img

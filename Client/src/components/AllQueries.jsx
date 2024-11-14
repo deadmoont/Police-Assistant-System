@@ -77,9 +77,11 @@ const AllQueries = () => {
                 <p className="bolder"> <strong>Applicant Name:</strong> {query.name}</p>
                 <p className="bolder"><strong>Phone Number:</strong> {query.phoneNumber}</p>
                 <p className="bolder"><strong>Address:</strong> {query.address}</p>
-                <button className="done-btn" onClick={() => handleDone(query._id)}>
-                  Mark as Done
-                </button>
+                {index === 0 && (
+                  <button className="done-btn" onClick={() => handleDone(query._id)}>
+                    Mark as Done
+                  </button>
+                )}
               </div>
             ))
           ) : (

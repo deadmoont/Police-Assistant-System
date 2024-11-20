@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
-  caseNumber: { type: String, required: true },
+  caseNumber: { type: String, required: true, unique: true },
   applicant: { type: String, required: true },
   email: { type: String, required: true },
   phoneNumber: { type: String, required: true },

@@ -1,151 +1,15 @@
-// import React, { useState } from "react";
-// import apiService from "../services/apiService";
-// import "../styles/App.css";
-// import "./CSS/FileRecord.css";
-// import SubNavbar from "./SubNavbar"; // Import SubNavbar
-// import Navbar from "./Navbar";
-// import Footer from "./Footer";
-
-// const categories = ["Theft", "Assault", "Fraud", "Missing Persons"]; // Define categories
-
-// const FileRecord = () => {
-//   const [caseNumber, setCaseNumber] = useState("");
-//   const [applicant, setApplicant] = useState("");
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [address, setAddress] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [successMessage, setSuccessMessage] = useState("");
-//   const [errorMessage, setErrorMessage] = useState("");
-//   const [selectedCategory, setSelectedCategory] = useState("Theft"); // Track the selected category
-
-//   const handleCategoryClick = (category) => {
-//     setSelectedCategory(category); // Update selected category
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await apiService.addFileRecord({
-//         caseNumber,
-//         applicant,
-//         phoneNumber,
-//         address,
-//         description,
-//         category: selectedCategory,
-//       });
-//       setSuccessMessage("Record added successfully");
-//       setErrorMessage("");
-//       setCaseNumber("");
-//       setApplicant("");
-//       setPhoneNumber("");
-//       setAddress("");
-//       setDescription("");
-//     } catch (error) {
-//       setErrorMessage("Error adding record. Please try again.");
-//       setSuccessMessage("");
-//     }
-//   };
-
-//   const handleProfileClick = () => {
-//     navigate(`/Profile?email=${userData.email}`);
-//   };
-
-//   return (
-//     <>
-//       <Navbar handleProfileClick={handleProfileClick} />
-
-//       <div className="file-record-container">
-//         {/* SubNavbar for category selection */}
-//         <SubNavbar
-//           categories={categories}
-//           selectedCategory={selectedCategory}
-//           setSelectedCategory={handleCategoryClick}
-//         />
-
-//         {/* Dynamic content based on selected category */}
-//         {/* <div className="category-content"> */}
-//         <h2>{selectedCategory}</h2>
-//         <p>
-//           {selectedCategory === "Theft" &&
-//             "Details and guidelines related to theft cases."}
-//           {selectedCategory === "Assault" &&
-//             "Information regarding assault cases and procedures."}
-//           {selectedCategory === "Fraud" &&
-//             "Steps and regulations for handling fraud-related cases."}
-//           {selectedCategory === "Missing Persons" &&
-//             "Instructions for missing persons case management."}
-//         </p>
-//         {/* </div> */}
-
-//         {/* Form to file a record */}
-//         <form onSubmit={handleSubmit} className="file-record-form">{/*file-record-form*/}
-//           <p className="ptext">Case Number:</p>
-//           <input
-//             type="text"
-//             // placeholder="Case Number"
-//             value={caseNumber}
-//             onChange={(e) => setCaseNumber(e.target.value)}
-//             required
-//           />
-//           Applicant Name:
-//           <input
-//             type="text"
-//             // placeholder="Applicant Name"
-//             value={applicant}
-//             onChange={(e) => setApplicant(e.target.value)}
-//             required
-//           />
-//           Phone Number:
-//           <input
-//             type="text"
-//             // placeholder="Phone Number"
-//             value={phoneNumber}
-//             onChange={(e) => setPhoneNumber(e.target.value)}
-//             required
-//           />
-//           Address:
-//           <input
-//             type="text"
-//             // placeholder="Address"
-//             value={address}
-//             onChange={(e) => setAddress(e.target.value)}
-//             required
-//           />
-//           Description:
-//           <textarea
-//             // placeholder="Description"
-//             value={description}
-//             onChange={(e) => setDescription(e.target.value)}
-//             rows="4"
-//             required
-//           />
-//           <button type="submit">Add Record</button>
-//         </form>
-
-//         {/* Success/Error messages */}
-//         {successMessage && (
-//           <div className="success-message">{successMessage}</div>
-//         )}
-//         {errorMessage && <div className="error-message">{errorMessage}</div>}
-//       </div>
-
-//       <Footer></Footer>
-//     </>
-//   );
-// };
-
-// export default FileRecord;
-
 import React, { useState } from "react";
 import apiService from "../services/apiService";
 // import "../styles/App.css";
 import "./CSS/FileRecord.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const categories = ["Theft", "Assault", "Fraud", "Missing Persons"]; // Define categories
 
 const FileRecord = () => {
+  const navigate = useNavigate();
   const [caseNumber, setCaseNumber] = useState("");
   const [applicant, setApplicant] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -157,6 +21,12 @@ const FileRecord = () => {
   const [incidentTime, setIncidentTime] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+
+  const handleRecordListClick = () => {
+    // Navigate to the MemoApp page when the button is clicked
+    navigate("/record-list");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -177,8 +47,11 @@ const FileRecord = () => {
         incidentDate,
         incidentTime,
       });
+  
+      // Show success alert
       setSuccessMessage("Record added successfully");
-      setErrorMessage("");
+  
+      // Clear form and state
       setCaseNumber("");
       setApplicant("");
       setEmail("");
@@ -187,19 +60,34 @@ const FileRecord = () => {
       setDescription("");
       setIncidentDate("");
       setIncidentTime("");
-    } catch (error) {
-      setErrorMessage("Error adding record. Please try again.");
       setSuccessMessage("");
+      setErrorMessage("");
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        // Show alert for duplicate case number
+        alert("This case number already exists in the database.");
+      } else {
+        // Show alert for other errors
+        alert("Try different case number");
+      }
     }
   };
-
+  
   // const [gender, setGender] = useState(""); // Initialize gender state
   return (
     <>
       <Navbar />
 
       <div className="edit-details-container">
-      <h2>Complaint Details</h2>
+        <div className="allrecordsview">
+        <h2>Complaint Details
+
+        <button class="FRbtn" onClick={handleRecordListClick}>View all Records</button>
+</h2>
+
+        </div>
+     
+      
       <form onSubmit={handleSubmit} className="edit-details-form">
         <div className="form-row">
           <div className="form-group">

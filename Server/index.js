@@ -214,6 +214,16 @@ app.post("/api/records", async (req, res) => {
   }
 
   try {
+    // Check if a record with the same case number already exists
+    const existingRecord = await Record.findOne({ caseNumber });
+
+    if (existingRecord) {
+      return res
+        .status(409)
+        .json({ message: "A record with this case number already exists" });
+    }
+
+    // Create and save a new record if no duplicate is found
     const newRecord = new Record({
       caseNumber,
       applicant,
@@ -233,6 +243,16 @@ app.post("/api/records", async (req, res) => {
     res
       .status(500)
       .json({ message: "Error saving the record", error: err.message });
+  }
+});
+
+app.get("/api/records", async (req, res) => {
+  try {
+    const records = await Record.find();
+    res.status(200).json(records);
+  } catch (error) {
+    console.error("Error fetching records:", error);
+    res.status(500).json({ message: "Error fetching records" });
   }
 });
 

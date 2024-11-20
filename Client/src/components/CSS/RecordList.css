@@ -1,0 +1,84 @@
+/* RecordList.css */
+.records-container {
+    padding: 20px;
+    max-width: 1200px; /* Increase max width to allow more space for grid layout */
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .records-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Explicitly set 4 columns */
+    gap: 20px; /* Space between grid items */
+  }
+  
+  .record-box {
+    background-color: #f6e2e2;
+    padding: 1rem; /* Reduced padding to make the box smaller */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .record-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .search-input {
+    padding: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .empty-message {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  .record-case-number {
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+  
+  .record-number {
+    text-align: left;
+    font-weight: bolder;
+  }
+  .records-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .records-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 items per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .records-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .records-grid {
+      grid-template-columns: 1fr; /* 1 item per row on extra small screens */
+    }
+  }
+    

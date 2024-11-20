@@ -298,3 +298,17 @@ h2{
 .address-group .form-group {
   flex: 1;
 }
+.FRbtn{
+  width: 30%;
+  padding: 10px;
+  background-color: #007c89;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 16vw;
+  margin-bottom: 1.5vh;
+}

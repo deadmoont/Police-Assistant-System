@@ -14,6 +14,7 @@ import AttendanceList from "./AttendanceList";
 import DepartmentTracker from "./DepartmentTracker";
 import PersonnelList from "./PersonnelList";
 import CamMonitor from "./CamMonitor"; // Import CamMonitor
+import RecordsList from "./RecordList";
 
 function AppContent() {
   return (
@@ -35,6 +36,7 @@ function AppContent() {
         <Route path="/AttendanceList" element={<AttendanceList />} />
         <Route path="/DepartmentTracker" element={<DepartmentTracker />} />
         <Route path="/cam-monitor" element={<CamMonitor />} /> {/* Add CamMonitor route */}
+        <Route path="/record-list" element={<RecordsList />} />
       </Routes>
     </div>
   );

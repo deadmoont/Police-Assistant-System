@@ -4,8 +4,11 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap; /* Allows cards to wrap if screen width is limited */
-    gap: 140px; /* Optional: adds additional space between cards */
-    margin-left: 320px;
+    gap: 11rem;
+    margin-left: 25%;
+
+    
+
 }
 
 .container5 {
@@ -21,7 +24,8 @@
      /* Each card takes up 30% of the row width and is flexible */
     max-width: 300px; /* Limits max size of cards */
     min-width: 250px; /* Sets a minimum width for each card */
-}
+   
+}   
 
 .card-text {
     text-align: left;

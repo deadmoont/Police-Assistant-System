@@ -165,9 +165,9 @@ html {
 /* Street Info Card Styles */
 .street-info-card {
   position: fixed;
-  bottom: 170px;
+  
   left: 9%;
- margin-bottom: 320px;
+ margin-bottom:40rem;
   transform: translateX(-50%);
   background-color: #686868;
   color: white;

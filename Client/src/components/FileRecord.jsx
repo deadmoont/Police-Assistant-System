@@ -49,7 +49,7 @@ const FileRecord = () => {
       });
   
       // Show success alert
-      setSuccessMessage("Record added successfully");
+      alert("Record added successfully");
   
       // Clear form and state
       setCaseNumber("");
@@ -62,14 +62,9 @@ const FileRecord = () => {
       setIncidentTime("");
       setSuccessMessage("");
       setErrorMessage("");
-    } catch (error) {
-      if (error.response && error.response.status === 409) {
-        // Show alert for duplicate case number
-        alert("This case number already exists in the database.");
-      } else {
-        // Show alert for other errors
-        alert("Try different case number");
-      }
+    } catch (error) {        // Show alert for other errors
+      setErrorMessage("Error adding the record");
+      
     }
   };
   
@@ -239,8 +234,7 @@ const FileRecord = () => {
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
-
-      <Footer />
+        <Footer/>
     </>
   );
 };

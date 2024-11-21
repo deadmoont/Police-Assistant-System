@@ -45,10 +45,22 @@ Store and retrieve critical data securely:
 ---
 
 ## 💻 How to Run the Project
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/deadmoont/Police-Assistant-System.git
-   - Then open two terminal , in first terminal...go to client folder (by running cd client )->and then do npm install->then run npm run dev 
-   and in second terminal , go to server folder (cd server) -> and then do npm install -> then run npm start
 
-   -when the mongodb connect console in the terminal in server side then click on the link displayed in the client side.
+To set up and run the Police Assistant System locally, follow these steps:  
+
+1. **Clone the Repository**  
+   Begin by cloning the repository from GitHub using the provided link.  
+
+2. **Prepare the Client and Server**  
+   Open two separate terminals to run the client and server applications simultaneously.  
+
+   - In the first terminal, navigate to the `client` folder. Once inside, install the required dependencies and then start the client.  
+   - In the second terminal, navigate to the `server` folder. Similarly, install the dependencies and start the server.  
+
+3. **Connect to MongoDB**  
+   Wait for the server terminal to confirm that MongoDB has connected successfully.  
+
+4. **Launch the Application**  
+   After MongoDB is connected, look at the link displayed in the client terminal and click it to open the application in your browser.  
+
+These steps will guide you to run the Police Assistant System seamlessly on your local machine. 🚔

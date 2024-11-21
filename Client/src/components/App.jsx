@@ -15,6 +15,7 @@ import DepartmentTracker from "./DepartmentTracker";
 import PersonnelList from "./PersonnelList";
 import CamMonitor from "./CamMonitor"; // Import CamMonitor
 import RecordsList from "./RecordList";
+// Made changes to make it work
 
 function AppContent() {
   return (

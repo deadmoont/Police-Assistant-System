@@ -41,7 +41,7 @@ mongoose
 // ─── AUTH ──────────────────────────────────────────────────────────────────────
 
 // Register
-app.post("/register", async (req, res) => {
+app.post("/api/register", async (req, res) => {
   const { email, password } = req.body;
 
   const existing = await FormDataModel.findOne({ email });
@@ -54,7 +54,7 @@ app.post("/register", async (req, res) => {
 });
 
 // Login
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
 
   const user = await FormDataModel.findOne({ email });
@@ -78,7 +78,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/send-otp", async (req, res) => {
+app.post("/api/send-otp", async (req, res) => {
   try {
     const { email } = req.body;
     const otp = Math.floor(100000 + Math.random() * 900000);
@@ -100,7 +100,7 @@ app.post("/send-otp", async (req, res) => {
 });
 
 // Verify OTP
-app.post("/verify-otp", async (req, res) => {
+app.post("/api/verify-otp", async (req, res) => {
   try {
     const { email, otp } = req.body;
     const user = await FormDataModel.findOne({ email });
@@ -121,7 +121,7 @@ app.post("/verify-otp", async (req, res) => {
 });
 
 // Change Password
-app.post("/change-password", async (req, res) => {
+app.post("/api/change-password", async (req, res) => {
   try {
     const { email, newPassword } = req.body;
     await FormDataModel.updateOne({ email }, { password: newPassword });

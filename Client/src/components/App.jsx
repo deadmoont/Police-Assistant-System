@@ -8,7 +8,7 @@ import FileRecord from "./FileRecord";
 import UserRegister from "./UserRegister";
 import MemoApp from "./MemoApp";
 import AllQueries from "./AllQueries";
-import QueriesFinished from "./QueriesFinished";
+import QueriesFinished from "./Queriesfinished";
 import Queueopener from "./Queueopener";
 import AttendanceList from "./AttendanceList";
 import DepartmentTracker from "./DepartmentTracker";

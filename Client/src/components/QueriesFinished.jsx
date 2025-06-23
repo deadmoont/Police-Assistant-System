@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./CSS/QueriesFinished.css";
+import  { useState, useEffect } from "react";
+import "./CSS/Queriesfinished.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 

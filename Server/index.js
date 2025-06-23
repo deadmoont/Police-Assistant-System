@@ -10,6 +10,11 @@ const Employee = require("./models/Employee");
 
 //const recordRoutes = require('./routes/recordRoutes'); // Import the record routes
 
+const path = require("path");
+require("dotenv").config({
+  path: path.resolve(__dirname, "../.env"),
+});
+
 const app = express();
 const PORT = process.env.PORT || 3001; // Use environment variable for the port or default to 3001
 
@@ -24,13 +29,16 @@ app.use(
 
 // MongoDB connection
 mongoose
-  .connect(
-    "mongodb+srv://2:2@cluster1.51xt3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
-  )
-  .then(() => console.log("MongoDB connected"))
+  .connect(process.env.MONGODB_URL, {
+    // optional settings for mongoose 6.x+
+    // (if you need them; most defaults are fine)
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => {
-    console.error("MongoDB connection error:", err);
-    process.exit(1); // Exit process with failure
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1);
   });
 
 app.post("/register", (req, res) => {
@@ -61,12 +69,11 @@ app.post("/login", (req, res) => {
   });
 });
 
-// Set up nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "grishgautam03@gmail.com", // replace with your email
-    pass: "lvfu zcnp njjv bgqh", // replace with your email password
+    user: process.env.EMAIL_USER, // from .env
+    pass: process.env.EMAIL_PASS, // from .env
   },
 });
 

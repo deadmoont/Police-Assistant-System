@@ -1,5 +1,4 @@
 import  { useState, useEffect } from "react";
-import "./CSS/QueriesFinished.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
